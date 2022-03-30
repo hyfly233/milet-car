@@ -1,0 +1,47 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/
+
+---
+spring:
+  application:
+    name: car-eureka-23300
+  config:
+    activate:
+      on-profile: 23300
+eureka:
+  instance:
+    hostname: car-eureka-23300
+server:
+  port: 23300
+
+---
+
+spring:
+  application:
+    name: car-eureka-23301
+  config:
+    activate:
+      on-profile: 23301
+eureka:
+  instance:
+    hostname: car-eureka-23301
+server:
+  port: 23301
+
+---
+
+spring:
+  application:
+    name: car-eureka-23302
+  config:
+    activate:
+      on-profile: 23302
+eureka:
+  instance:
+    hostname: car-eureka-23302
+server:
+  port: 23302

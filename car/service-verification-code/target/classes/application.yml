@@ -1,0 +1,12 @@
+server:
+  port: 23311
+
+spring:
+  application:
+    name: service-verification-code-23311
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/
+

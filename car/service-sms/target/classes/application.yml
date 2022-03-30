@@ -1,0 +1,11 @@
+server:
+  port: 23310
+
+spring:
+  application:
+    name: service-sms-23310
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/

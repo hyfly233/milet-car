@@ -1,0 +1,11 @@
+server:
+  port: 23305
+
+spring:
+  application:
+    name: car-api-23305
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/

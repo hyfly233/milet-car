@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.MessageShowMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.MessageShow">
+    <!--@mbg.generated-->
+    <!--@Table t_message_show-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="yid" jdbcType="VARCHAR" property="yid" />
+    <result column="accept_identity" jdbcType="TINYINT" property="acceptIdentity" />
+    <result column="send_time" jdbcType="TIMESTAMP" property="sendTime" />
+    <result column="push_type" jdbcType="TINYINT" property="pushType" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="is_read" jdbcType="BOOLEAN" property="isRead" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="sms_send_app_id" jdbcType="INTEGER" property="smsSendAppId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, content, yid, accept_identity, send_time, push_type, `status`, is_read, 
+    order_id, sms_send_app_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_message_show
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_message_show
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.MessageShow" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_message_show (title, content, yid, 
+      accept_identity, send_time, push_type, 
+      `status`, is_read, order_id, 
+      sms_send_app_id, create_time)
+    values (#{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{yid,jdbcType=VARCHAR}, 
+      #{acceptIdentity,jdbcType=TINYINT}, #{sendTime,jdbcType=TIMESTAMP}, #{pushType,jdbcType=TINYINT}, 
+      #{status,jdbcType=BOOLEAN}, #{isRead,jdbcType=BOOLEAN}, #{orderId,jdbcType=INTEGER}, 
+      #{smsSendAppId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.MessageShow" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_message_show
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="yid != null">
+        yid,
+      </if>
+      <if test="acceptIdentity != null">
+        accept_identity,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="pushType != null">
+        push_type,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="isRead != null">
+        is_read,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="smsSendAppId != null">
+        sms_send_app_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="yid != null">
+        #{yid,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptIdentity != null">
+        #{acceptIdentity,jdbcType=TINYINT},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushType != null">
+        #{pushType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="isRead != null">
+        #{isRead,jdbcType=BOOLEAN},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="smsSendAppId != null">
+        #{smsSendAppId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.MessageShow">
+    <!--@mbg.generated-->
+    update t_message_show
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="yid != null">
+        yid = #{yid,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptIdentity != null">
+        accept_identity = #{acceptIdentity,jdbcType=TINYINT},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pushType != null">
+        push_type = #{pushType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="isRead != null">
+        is_read = #{isRead,jdbcType=BOOLEAN},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="smsSendAppId != null">
+        sms_send_app_id = #{smsSendAppId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.MessageShow">
+    <!--@mbg.generated-->
+    update t_message_show
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      yid = #{yid,jdbcType=VARCHAR},
+      accept_identity = #{acceptIdentity,jdbcType=TINYINT},
+      send_time = #{sendTime,jdbcType=TIMESTAMP},
+      push_type = #{pushType,jdbcType=TINYINT},
+      `status` = #{status,jdbcType=BOOLEAN},
+      is_read = #{isRead,jdbcType=BOOLEAN},
+      order_id = #{orderId,jdbcType=INTEGER},
+      sms_send_app_id = #{smsSendAppId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CarDispatchCapacitySetMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CarDispatchCapacitySet">
+    <!--@mbg.generated-->
+    <!--@Table t_car_dispatch_capacity_set-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="car_service_period" jdbcType="BOOLEAN" property="carServicePeriod" />
+    <result column="spare_driver_count" jdbcType="INTEGER" property="spareDriverCount" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, city_code, car_service_period, spare_driver_count, operator_id, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_car_dispatch_capacity_set
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_car_dispatch_capacity_set
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarDispatchCapacitySet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_dispatch_capacity_set (city_code, car_service_period, spare_driver_count, 
+      operator_id, create_time, update_time
+      )
+    values (#{cityCode,jdbcType=VARCHAR}, #{carServicePeriod,jdbcType=BOOLEAN}, #{spareDriverCount,jdbcType=INTEGER}, 
+      #{operatorId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarDispatchCapacitySet" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_dispatch_capacity_set
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityCode != null">
+        city_code,
+      </if>
+      <if test="carServicePeriod != null">
+        car_service_period,
+      </if>
+      <if test="spareDriverCount != null">
+        spare_driver_count,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityCode != null">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carServicePeriod != null">
+        #{carServicePeriod,jdbcType=BOOLEAN},
+      </if>
+      <if test="spareDriverCount != null">
+        #{spareDriverCount,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CarDispatchCapacitySet">
+    <!--@mbg.generated-->
+    update t_car_dispatch_capacity_set
+    <set>
+      <if test="cityCode != null">
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="carServicePeriod != null">
+        car_service_period = #{carServicePeriod,jdbcType=BOOLEAN},
+      </if>
+      <if test="spareDriverCount != null">
+        spare_driver_count = #{spareDriverCount,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CarDispatchCapacitySet">
+    <!--@mbg.generated-->
+    update t_car_dispatch_capacity_set
+    set city_code = #{cityCode,jdbcType=VARCHAR},
+      car_service_period = #{carServicePeriod,jdbcType=BOOLEAN},
+      spare_driver_count = #{spareDriverCount,jdbcType=INTEGER},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

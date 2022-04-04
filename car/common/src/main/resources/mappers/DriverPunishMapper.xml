@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverPunishMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverPunish">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_punish-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_id" jdbcType="INTEGER" property="driverId" />
+    <result column="punish_time" jdbcType="TIMESTAMP" property="punishTime" />
+    <result column="punish_reason" jdbcType="VARCHAR" property="punishReason" />
+    <result column="punish_result" jdbcType="VARCHAR" property="punishResult" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_id, punish_time, punish_reason, punish_result
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_punish
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_punish
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverPunish" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_punish (driver_id, punish_time, punish_reason, 
+      punish_result)
+    values (#{driverId,jdbcType=INTEGER}, #{punishTime,jdbcType=TIMESTAMP}, #{punishReason,jdbcType=VARCHAR}, 
+      #{punishResult,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverPunish" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_punish
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        driver_id,
+      </if>
+      <if test="punishTime != null">
+        punish_time,
+      </if>
+      <if test="punishReason != null">
+        punish_reason,
+      </if>
+      <if test="punishResult != null">
+        punish_result,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="punishTime != null">
+        #{punishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="punishReason != null">
+        #{punishReason,jdbcType=VARCHAR},
+      </if>
+      <if test="punishResult != null">
+        #{punishResult,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverPunish">
+    <!--@mbg.generated-->
+    update t_driver_punish
+    <set>
+      <if test="driverId != null">
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="punishTime != null">
+        punish_time = #{punishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="punishReason != null">
+        punish_reason = #{punishReason,jdbcType=VARCHAR},
+      </if>
+      <if test="punishResult != null">
+        punish_result = #{punishResult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverPunish">
+    <!--@mbg.generated-->
+    update t_driver_punish
+    set driver_id = #{driverId,jdbcType=INTEGER},
+      punish_time = #{punishTime,jdbcType=TIMESTAMP},
+      punish_reason = #{punishReason,jdbcType=VARCHAR},
+      punish_result = #{punishResult,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

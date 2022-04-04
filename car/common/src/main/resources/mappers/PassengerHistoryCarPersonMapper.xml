@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PassengerHistoryCarPersonMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PassengerHistoryCarPerson">
+    <!--@mbg.generated-->
+    <!--@Table t_passenger_history_car_person-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="passenger_phone" jdbcType="VARCHAR" property="passengerPhone" />
+    <result column="use_car_person_name" jdbcType="VARCHAR" property="useCarPersonName" />
+    <result column="use_car_person_phone" jdbcType="VARCHAR" property="useCarPersonPhone" />
+    <result column="is_del" jdbcType="CHAR" property="isDel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, passenger_info_id, passenger_phone, use_car_person_name, use_car_person_phone, 
+    is_del, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_passenger_history_car_person
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_passenger_history_car_person
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerHistoryCarPerson" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_history_car_person (passenger_info_id, passenger_phone, 
+      use_car_person_name, use_car_person_phone, is_del, 
+      create_time, update_time)
+    values (#{passengerInfoId,jdbcType=INTEGER}, #{passengerPhone,jdbcType=VARCHAR}, 
+      #{useCarPersonName,jdbcType=VARCHAR}, #{useCarPersonPhone,jdbcType=VARCHAR}, #{isDel,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerHistoryCarPerson" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_history_car_person
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="passengerPhone != null">
+        passenger_phone,
+      </if>
+      <if test="useCarPersonName != null">
+        use_car_person_name,
+      </if>
+      <if test="useCarPersonPhone != null">
+        use_car_person_phone,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="passengerPhone != null">
+        #{passengerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="useCarPersonName != null">
+        #{useCarPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="useCarPersonPhone != null">
+        #{useCarPersonPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PassengerHistoryCarPerson">
+    <!--@mbg.generated-->
+    update t_passenger_history_car_person
+    <set>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="passengerPhone != null">
+        passenger_phone = #{passengerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="useCarPersonName != null">
+        use_car_person_name = #{useCarPersonName,jdbcType=VARCHAR},
+      </if>
+      <if test="useCarPersonPhone != null">
+        use_car_person_phone = #{useCarPersonPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PassengerHistoryCarPerson">
+    <!--@mbg.generated-->
+    update t_passenger_history_car_person
+    set passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      passenger_phone = #{passengerPhone,jdbcType=VARCHAR},
+      use_car_person_name = #{useCarPersonName,jdbcType=VARCHAR},
+      use_car_person_phone = #{useCarPersonPhone,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

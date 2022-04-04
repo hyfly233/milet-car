@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.FlightNumberMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.FlightNumber">
+    <!--@mbg.generated-->
+    <!--@Table t_flight_number-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="flight_number" jdbcType="VARCHAR" property="flightNumber" />
+    <result column="flight_date" jdbcType="DATE" property="flightDate" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="start_code" jdbcType="CHAR" property="startCode" />
+    <result column="end_code" jdbcType="CHAR" property="endCode" />
+    <result column="is_subscribe" jdbcType="TINYINT" property="isSubscribe" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, flight_number, flight_date, passenger_info_id, start_code, end_code, is_subscribe, 
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_flight_number
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_flight_number
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.FlightNumber" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_flight_number (flight_number, flight_date, passenger_info_id, 
+      start_code, end_code, is_subscribe, 
+      create_time)
+    values (#{flightNumber,jdbcType=VARCHAR}, #{flightDate,jdbcType=DATE}, #{passengerInfoId,jdbcType=INTEGER}, 
+      #{startCode,jdbcType=CHAR}, #{endCode,jdbcType=CHAR}, #{isSubscribe,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.FlightNumber" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_flight_number
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flightNumber != null">
+        flight_number,
+      </if>
+      <if test="flightDate != null">
+        flight_date,
+      </if>
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="startCode != null">
+        start_code,
+      </if>
+      <if test="endCode != null">
+        end_code,
+      </if>
+      <if test="isSubscribe != null">
+        is_subscribe,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flightNumber != null">
+        #{flightNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="flightDate != null">
+        #{flightDate,jdbcType=DATE},
+      </if>
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="startCode != null">
+        #{startCode,jdbcType=CHAR},
+      </if>
+      <if test="endCode != null">
+        #{endCode,jdbcType=CHAR},
+      </if>
+      <if test="isSubscribe != null">
+        #{isSubscribe,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.FlightNumber">
+    <!--@mbg.generated-->
+    update t_flight_number
+    <set>
+      <if test="flightNumber != null">
+        flight_number = #{flightNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="flightDate != null">
+        flight_date = #{flightDate,jdbcType=DATE},
+      </if>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="startCode != null">
+        start_code = #{startCode,jdbcType=CHAR},
+      </if>
+      <if test="endCode != null">
+        end_code = #{endCode,jdbcType=CHAR},
+      </if>
+      <if test="isSubscribe != null">
+        is_subscribe = #{isSubscribe,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.FlightNumber">
+    <!--@mbg.generated-->
+    update t_flight_number
+    set flight_number = #{flightNumber,jdbcType=VARCHAR},
+      flight_date = #{flightDate,jdbcType=DATE},
+      passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      start_code = #{startCode,jdbcType=CHAR},
+      end_code = #{endCode,jdbcType=CHAR},
+      is_subscribe = #{isSubscribe,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

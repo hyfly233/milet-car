@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CallRecordsMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CallRecords">
+    <!--@mbg.generated-->
+    <!--@Table t_call_records-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pool_key" jdbcType="VARCHAR" property="poolKey" />
+    <result column="sub_id" jdbcType="VARCHAR" property="subId" />
+    <result column="call_id" jdbcType="VARCHAR" property="callId" />
+    <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+    <result column="secret_no" jdbcType="VARCHAR" property="secretNo" />
+    <result column="peer_no" jdbcType="VARCHAR" property="peerNo" />
+    <result column="call_type" jdbcType="VARCHAR" property="callType" />
+    <result column="call_time" jdbcType="TIMESTAMP" property="callTime" />
+    <result column="ring_time" jdbcType="TIMESTAMP" property="ringTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="release_dir" jdbcType="VARCHAR" property="releaseDir" />
+    <result column="release_cause" jdbcType="INTEGER" property="releaseCause" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, pool_key, sub_id, call_id, phone_no, secret_no, peer_no, call_type, call_time, 
+    ring_time, start_time, release_time, release_dir, release_cause, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_call_records
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_call_records
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CallRecords" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_call_records (pool_key, sub_id, call_id, 
+      phone_no, secret_no, peer_no, 
+      call_type, call_time, ring_time, 
+      start_time, release_time, release_dir, 
+      release_cause, create_time, update_time
+      )
+    values (#{poolKey,jdbcType=VARCHAR}, #{subId,jdbcType=VARCHAR}, #{callId,jdbcType=VARCHAR}, 
+      #{phoneNo,jdbcType=VARCHAR}, #{secretNo,jdbcType=VARCHAR}, #{peerNo,jdbcType=VARCHAR}, 
+      #{callType,jdbcType=VARCHAR}, #{callTime,jdbcType=TIMESTAMP}, #{ringTime,jdbcType=TIMESTAMP}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{releaseTime,jdbcType=TIMESTAMP}, #{releaseDir,jdbcType=VARCHAR}, 
+      #{releaseCause,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CallRecords" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_call_records
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="poolKey != null">
+        pool_key,
+      </if>
+      <if test="subId != null">
+        sub_id,
+      </if>
+      <if test="callId != null">
+        call_id,
+      </if>
+      <if test="phoneNo != null">
+        phone_no,
+      </if>
+      <if test="secretNo != null">
+        secret_no,
+      </if>
+      <if test="peerNo != null">
+        peer_no,
+      </if>
+      <if test="callType != null">
+        call_type,
+      </if>
+      <if test="callTime != null">
+        call_time,
+      </if>
+      <if test="ringTime != null">
+        ring_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="releaseTime != null">
+        release_time,
+      </if>
+      <if test="releaseDir != null">
+        release_dir,
+      </if>
+      <if test="releaseCause != null">
+        release_cause,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="poolKey != null">
+        #{poolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null">
+        #{subId,jdbcType=VARCHAR},
+      </if>
+      <if test="callId != null">
+        #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secretNo != null">
+        #{secretNo,jdbcType=VARCHAR},
+      </if>
+      <if test="peerNo != null">
+        #{peerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null">
+        #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="callTime != null">
+        #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ringTime != null">
+        #{ringTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseDir != null">
+        #{releaseDir,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseCause != null">
+        #{releaseCause,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CallRecords">
+    <!--@mbg.generated-->
+    update t_call_records
+    <set>
+      <if test="poolKey != null">
+        pool_key = #{poolKey,jdbcType=VARCHAR},
+      </if>
+      <if test="subId != null">
+        sub_id = #{subId,jdbcType=VARCHAR},
+      </if>
+      <if test="callId != null">
+        call_id = #{callId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="secretNo != null">
+        secret_no = #{secretNo,jdbcType=VARCHAR},
+      </if>
+      <if test="peerNo != null">
+        peer_no = #{peerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null">
+        call_type = #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="callTime != null">
+        call_time = #{callTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ringTime != null">
+        ring_time = #{ringTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseDir != null">
+        release_dir = #{releaseDir,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseCause != null">
+        release_cause = #{releaseCause,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CallRecords">
+    <!--@mbg.generated-->
+    update t_call_records
+    set pool_key = #{poolKey,jdbcType=VARCHAR},
+      sub_id = #{subId,jdbcType=VARCHAR},
+      call_id = #{callId,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      secret_no = #{secretNo,jdbcType=VARCHAR},
+      peer_no = #{peerNo,jdbcType=VARCHAR},
+      call_type = #{callType,jdbcType=VARCHAR},
+      call_time = #{callTime,jdbcType=TIMESTAMP},
+      ring_time = #{ringTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      release_dir = #{releaseDir,jdbcType=VARCHAR},
+      release_cause = #{releaseCause,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

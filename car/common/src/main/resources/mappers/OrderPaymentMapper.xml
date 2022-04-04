@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.OrderPaymentMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.OrderPayment">
+    <!--@mbg.generated-->
+    <!--@Table t_order_payment-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="pay_type" jdbcType="INTEGER" property="payType" />
+    <result column="total_price" jdbcType="DOUBLE" property="totalPrice" />
+    <result column="balance_price" jdbcType="DOUBLE" property="balancePrice" />
+    <result column="wechat_price" jdbcType="DOUBLE" property="wechatPrice" />
+    <result column="alipay_price" jdbcType="DOUBLE" property="alipayPrice" />
+    <result column="user_coupon_id" jdbcType="INTEGER" property="userCouponId" />
+    <result column="coupon_reduce_price" jdbcType="DOUBLE" property="couponReducePrice" />
+    <result column="paid_price" jdbcType="DOUBLE" property="paidPrice" />
+    <result column="remain_price" jdbcType="DOUBLE" property="remainPrice" />
+    <result column="tail_price" jdbcType="DOUBLE" property="tailPrice" />
+    <result column="replenish_price" jdbcType="DOUBLE" property="replenishPrice" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, pay_type, total_price, balance_price, wechat_price, alipay_price, user_coupon_id, 
+    coupon_reduce_price, paid_price, remain_price, tail_price, replenish_price, pay_time, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_payment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_order_payment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderPayment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_payment (order_id, pay_type, total_price, 
+      balance_price, wechat_price, alipay_price, 
+      user_coupon_id, coupon_reduce_price, paid_price, 
+      remain_price, tail_price, replenish_price, 
+      pay_time, create_time, update_time
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{payType,jdbcType=INTEGER}, #{totalPrice,jdbcType=DOUBLE}, 
+      #{balancePrice,jdbcType=DOUBLE}, #{wechatPrice,jdbcType=DOUBLE}, #{alipayPrice,jdbcType=DOUBLE}, 
+      #{userCouponId,jdbcType=INTEGER}, #{couponReducePrice,jdbcType=DOUBLE}, #{paidPrice,jdbcType=DOUBLE}, 
+      #{remainPrice,jdbcType=DOUBLE}, #{tailPrice,jdbcType=DOUBLE}, #{replenishPrice,jdbcType=DOUBLE}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderPayment" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_payment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="balancePrice != null">
+        balance_price,
+      </if>
+      <if test="wechatPrice != null">
+        wechat_price,
+      </if>
+      <if test="alipayPrice != null">
+        alipay_price,
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id,
+      </if>
+      <if test="couponReducePrice != null">
+        coupon_reduce_price,
+      </if>
+      <if test="paidPrice != null">
+        paid_price,
+      </if>
+      <if test="remainPrice != null">
+        remain_price,
+      </if>
+      <if test="tailPrice != null">
+        tail_price,
+      </if>
+      <if test="replenishPrice != null">
+        replenish_price,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="balancePrice != null">
+        #{balancePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="wechatPrice != null">
+        #{wechatPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="alipayPrice != null">
+        #{alipayPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="userCouponId != null">
+        #{userCouponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponReducePrice != null">
+        #{couponReducePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="paidPrice != null">
+        #{paidPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="remainPrice != null">
+        #{remainPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="tailPrice != null">
+        #{tailPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="replenishPrice != null">
+        #{replenishPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.OrderPayment">
+    <!--@mbg.generated-->
+    update t_order_payment
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="balancePrice != null">
+        balance_price = #{balancePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="wechatPrice != null">
+        wechat_price = #{wechatPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="alipayPrice != null">
+        alipay_price = #{alipayPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id = #{userCouponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponReducePrice != null">
+        coupon_reduce_price = #{couponReducePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="paidPrice != null">
+        paid_price = #{paidPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="remainPrice != null">
+        remain_price = #{remainPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="tailPrice != null">
+        tail_price = #{tailPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="replenishPrice != null">
+        replenish_price = #{replenishPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.OrderPayment">
+    <!--@mbg.generated-->
+    update t_order_payment
+    set order_id = #{orderId,jdbcType=INTEGER},
+      pay_type = #{payType,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=DOUBLE},
+      balance_price = #{balancePrice,jdbcType=DOUBLE},
+      wechat_price = #{wechatPrice,jdbcType=DOUBLE},
+      alipay_price = #{alipayPrice,jdbcType=DOUBLE},
+      user_coupon_id = #{userCouponId,jdbcType=INTEGER},
+      coupon_reduce_price = #{couponReducePrice,jdbcType=DOUBLE},
+      paid_price = #{paidPrice,jdbcType=DOUBLE},
+      remain_price = #{remainPrice,jdbcType=DOUBLE},
+      tail_price = #{tailPrice,jdbcType=DOUBLE},
+      replenish_price = #{replenishPrice,jdbcType=DOUBLE},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

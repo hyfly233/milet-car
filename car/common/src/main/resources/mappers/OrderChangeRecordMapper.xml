@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.OrderChangeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.OrderChangeRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_order_change_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="driver_befor" jdbcType="INTEGER" property="driverBefor" />
+    <result column="driver_after" jdbcType="INTEGER" property="driverAfter" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operate_uesr" jdbcType="VARCHAR" property="operateUesr" />
+    <result column="other_reason" jdbcType="VARCHAR" property="otherReason" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, driver_befor, driver_after, reason, create_time, operate_uesr, other_reason
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_change_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_order_change_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderChangeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_change_record (order_id, driver_befor, driver_after, 
+      reason, create_time, operate_uesr, 
+      other_reason)
+    values (#{orderId,jdbcType=INTEGER}, #{driverBefor,jdbcType=INTEGER}, #{driverAfter,jdbcType=INTEGER}, 
+      #{reason,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{operateUesr,jdbcType=VARCHAR}, 
+      #{otherReason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderChangeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_change_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="driverBefor != null">
+        driver_befor,
+      </if>
+      <if test="driverAfter != null">
+        driver_after,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operateUesr != null">
+        operate_uesr,
+      </if>
+      <if test="otherReason != null">
+        other_reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="driverBefor != null">
+        #{driverBefor,jdbcType=INTEGER},
+      </if>
+      <if test="driverAfter != null">
+        #{driverAfter,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateUesr != null">
+        #{operateUesr,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReason != null">
+        #{otherReason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.OrderChangeRecord">
+    <!--@mbg.generated-->
+    update t_order_change_record
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="driverBefor != null">
+        driver_befor = #{driverBefor,jdbcType=INTEGER},
+      </if>
+      <if test="driverAfter != null">
+        driver_after = #{driverAfter,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateUesr != null">
+        operate_uesr = #{operateUesr,jdbcType=VARCHAR},
+      </if>
+      <if test="otherReason != null">
+        other_reason = #{otherReason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.OrderChangeRecord">
+    <!--@mbg.generated-->
+    update t_order_change_record
+    set order_id = #{orderId,jdbcType=INTEGER},
+      driver_befor = #{driverBefor,jdbcType=INTEGER},
+      driver_after = #{driverAfter,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      operate_uesr = #{operateUesr,jdbcType=VARCHAR},
+      other_reason = #{otherReason,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

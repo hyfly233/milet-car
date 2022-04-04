@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CouponActivityMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CouponActivity">
+    <!--@mbg.generated-->
+    <!--@Table t_coupon_activity-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="activity_no" jdbcType="VARCHAR" property="activityNo" />
+    <result column="activity_name" jdbcType="VARCHAR" property="activityName" />
+    <result column="enable_time" jdbcType="TIMESTAMP" property="enableTime" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="activity_type" jdbcType="TINYINT" property="activityType" />
+    <result column="coupon_rule" jdbcType="VARCHAR" property="couponRule" />
+    <result column="activity_desc" jdbcType="VARCHAR" property="activityDesc" />
+    <result column="get_times" jdbcType="TINYINT" property="getTimes" />
+    <result column="send_times" jdbcType="TINYINT" property="sendTimes" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, activity_no, activity_name, enable_time, expire_time, activity_type, coupon_rule, 
+    activity_desc, get_times, send_times, create_time, update_time, operator_id, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_coupon_activity
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_coupon_activity
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponActivity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_activity (activity_no, activity_name, enable_time, 
+      expire_time, activity_type, coupon_rule, 
+      activity_desc, get_times, send_times, 
+      create_time, update_time, operator_id, 
+      `status`)
+    values (#{activityNo,jdbcType=VARCHAR}, #{activityName,jdbcType=VARCHAR}, #{enableTime,jdbcType=TIMESTAMP}, 
+      #{expireTime,jdbcType=TIMESTAMP}, #{activityType,jdbcType=TINYINT}, #{couponRule,jdbcType=VARCHAR}, 
+      #{activityDesc,jdbcType=VARCHAR}, #{getTimes,jdbcType=TINYINT}, #{sendTimes,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER}, 
+      #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponActivity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityNo != null">
+        activity_no,
+      </if>
+      <if test="activityName != null">
+        activity_name,
+      </if>
+      <if test="enableTime != null">
+        enable_time,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
+      </if>
+      <if test="activityType != null">
+        activity_type,
+      </if>
+      <if test="couponRule != null">
+        coupon_rule,
+      </if>
+      <if test="activityDesc != null">
+        activity_desc,
+      </if>
+      <if test="getTimes != null">
+        get_times,
+      </if>
+      <if test="sendTimes != null">
+        send_times,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityNo != null">
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null">
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="enableTime != null">
+        #{enableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityType != null">
+        #{activityType,jdbcType=TINYINT},
+      </if>
+      <if test="couponRule != null">
+        #{couponRule,jdbcType=VARCHAR},
+      </if>
+      <if test="activityDesc != null">
+        #{activityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="getTimes != null">
+        #{getTimes,jdbcType=TINYINT},
+      </if>
+      <if test="sendTimes != null">
+        #{sendTimes,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CouponActivity">
+    <!--@mbg.generated-->
+    update t_coupon_activity
+    <set>
+      <if test="activityNo != null">
+        activity_no = #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null">
+        activity_name = #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="enableTime != null">
+        enable_time = #{enableTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityType != null">
+        activity_type = #{activityType,jdbcType=TINYINT},
+      </if>
+      <if test="couponRule != null">
+        coupon_rule = #{couponRule,jdbcType=VARCHAR},
+      </if>
+      <if test="activityDesc != null">
+        activity_desc = #{activityDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="getTimes != null">
+        get_times = #{getTimes,jdbcType=TINYINT},
+      </if>
+      <if test="sendTimes != null">
+        send_times = #{sendTimes,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CouponActivity">
+    <!--@mbg.generated-->
+    update t_coupon_activity
+    set activity_no = #{activityNo,jdbcType=VARCHAR},
+      activity_name = #{activityName,jdbcType=VARCHAR},
+      enable_time = #{enableTime,jdbcType=TIMESTAMP},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      activity_type = #{activityType,jdbcType=TINYINT},
+      coupon_rule = #{couponRule,jdbcType=VARCHAR},
+      activity_desc = #{activityDesc,jdbcType=VARCHAR},
+      get_times = #{getTimes,jdbcType=TINYINT},
+      send_times = #{sendTimes,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

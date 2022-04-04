@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.OrderGiftCouponRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.OrderGiftCouponRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_order_gift_coupon_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="doubt_id" jdbcType="INTEGER" property="doubtId" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="coupon_id" jdbcType="INTEGER" property="couponId" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="coupon_name" jdbcType="VARCHAR" property="couponName" />
+    <result column="user_coupon_id" jdbcType="INTEGER" property="userCouponId" />
+    <result column="coupon_amount" jdbcType="FLOAT" property="couponAmount" />
+    <result column="coupon_expired_date" jdbcType="VARCHAR" property="couponExpiredDate" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="operator_time" jdbcType="TIMESTAMP" property="operatorTime" />
+    <result column="solution" jdbcType="VARCHAR" property="solution" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, doubt_id, passenger_info_id, coupon_id, user_phone, coupon_name, user_coupon_id, 
+    coupon_amount, coupon_expired_date, operator_id, operator_time, solution, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_gift_coupon_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_order_gift_coupon_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderGiftCouponRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_gift_coupon_record (order_id, doubt_id, passenger_info_id, 
+      coupon_id, user_phone, coupon_name, 
+      user_coupon_id, coupon_amount, coupon_expired_date, 
+      operator_id, operator_time, solution, 
+      create_time, update_time)
+    values (#{orderId,jdbcType=INTEGER}, #{doubtId,jdbcType=INTEGER}, #{passengerInfoId,jdbcType=INTEGER}, 
+      #{couponId,jdbcType=INTEGER}, #{userPhone,jdbcType=VARCHAR}, #{couponName,jdbcType=VARCHAR}, 
+      #{userCouponId,jdbcType=INTEGER}, #{couponAmount,jdbcType=FLOAT}, #{couponExpiredDate,jdbcType=VARCHAR}, 
+      #{operatorId,jdbcType=INTEGER}, #{operatorTime,jdbcType=TIMESTAMP}, #{solution,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderGiftCouponRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_gift_coupon_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="doubtId != null">
+        doubt_id,
+      </if>
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="couponName != null">
+        coupon_name,
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id,
+      </if>
+      <if test="couponAmount != null">
+        coupon_amount,
+      </if>
+      <if test="couponExpiredDate != null">
+        coupon_expired_date,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="operatorTime != null">
+        operator_time,
+      </if>
+      <if test="solution != null">
+        solution,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="doubtId != null">
+        #{doubtId,jdbcType=INTEGER},
+      </if>
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="couponName != null">
+        #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCouponId != null">
+        #{userCouponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponAmount != null">
+        #{couponAmount,jdbcType=FLOAT},
+      </if>
+      <if test="couponExpiredDate != null">
+        #{couponExpiredDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorTime != null">
+        #{operatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="solution != null">
+        #{solution,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.OrderGiftCouponRecord">
+    <!--@mbg.generated-->
+    update t_order_gift_coupon_record
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="doubtId != null">
+        doubt_id = #{doubtId,jdbcType=INTEGER},
+      </if>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="couponName != null">
+        coupon_name = #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="userCouponId != null">
+        user_coupon_id = #{userCouponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponAmount != null">
+        coupon_amount = #{couponAmount,jdbcType=FLOAT},
+      </if>
+      <if test="couponExpiredDate != null">
+        coupon_expired_date = #{couponExpiredDate,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorTime != null">
+        operator_time = #{operatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="solution != null">
+        solution = #{solution,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.OrderGiftCouponRecord">
+    <!--@mbg.generated-->
+    update t_order_gift_coupon_record
+    set order_id = #{orderId,jdbcType=INTEGER},
+      doubt_id = #{doubtId,jdbcType=INTEGER},
+      passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      coupon_id = #{couponId,jdbcType=INTEGER},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      coupon_name = #{couponName,jdbcType=VARCHAR},
+      user_coupon_id = #{userCouponId,jdbcType=INTEGER},
+      coupon_amount = #{couponAmount,jdbcType=FLOAT},
+      coupon_expired_date = #{couponExpiredDate,jdbcType=VARCHAR},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      operator_time = #{operatorTime,jdbcType=TIMESTAMP},
+      solution = #{solution,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

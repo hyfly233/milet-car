@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PushMessageRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PushMessageRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_push_message_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="jpush_id" jdbcType="VARCHAR" property="jpushId" />
+    <result column="message_type" jdbcType="INTEGER" property="messageType" />
+    <result column="message_body" jdbcType="VARCHAR" property="messageBody" />
+    <result column="send_result" jdbcType="INTEGER" property="sendResult" />
+    <result column="send_id" jdbcType="VARCHAR" property="sendId" />
+    <result column="send_identity" jdbcType="INTEGER" property="sendIdentity" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `source`, jpush_id, message_type, message_body, send_result, send_id, send_identity, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_push_message_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_push_message_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushMessageRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_message_record (`source`, jpush_id, message_type, 
+      message_body, send_result, send_id, 
+      send_identity, create_time, update_time
+      )
+    values (#{source,jdbcType=VARCHAR}, #{jpushId,jdbcType=VARCHAR}, #{messageType,jdbcType=INTEGER}, 
+      #{messageBody,jdbcType=VARCHAR}, #{sendResult,jdbcType=INTEGER}, #{sendId,jdbcType=VARCHAR}, 
+      #{sendIdentity,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushMessageRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_message_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="source != null">
+        `source`,
+      </if>
+      <if test="jpushId != null">
+        jpush_id,
+      </if>
+      <if test="messageType != null">
+        message_type,
+      </if>
+      <if test="messageBody != null">
+        message_body,
+      </if>
+      <if test="sendResult != null">
+        send_result,
+      </if>
+      <if test="sendId != null">
+        send_id,
+      </if>
+      <if test="sendIdentity != null">
+        send_identity,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="jpushId != null">
+        #{jpushId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="messageBody != null">
+        #{messageBody,jdbcType=VARCHAR},
+      </if>
+      <if test="sendResult != null">
+        #{sendResult,jdbcType=INTEGER},
+      </if>
+      <if test="sendId != null">
+        #{sendId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendIdentity != null">
+        #{sendIdentity,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PushMessageRecord">
+    <!--@mbg.generated-->
+    update t_push_message_record
+    <set>
+      <if test="source != null">
+        `source` = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="jpushId != null">
+        jpush_id = #{jpushId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        message_type = #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="messageBody != null">
+        message_body = #{messageBody,jdbcType=VARCHAR},
+      </if>
+      <if test="sendResult != null">
+        send_result = #{sendResult,jdbcType=INTEGER},
+      </if>
+      <if test="sendId != null">
+        send_id = #{sendId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendIdentity != null">
+        send_identity = #{sendIdentity,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PushMessageRecord">
+    <!--@mbg.generated-->
+    update t_push_message_record
+    set `source` = #{source,jdbcType=VARCHAR},
+      jpush_id = #{jpushId,jdbcType=VARCHAR},
+      message_type = #{messageType,jdbcType=INTEGER},
+      message_body = #{messageBody,jdbcType=VARCHAR},
+      send_result = #{sendResult,jdbcType=INTEGER},
+      send_id = #{sendId,jdbcType=VARCHAR},
+      send_identity = #{sendIdentity,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

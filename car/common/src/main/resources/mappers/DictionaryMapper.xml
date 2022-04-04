@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.Dictionary">
+    <!--@mbg.generated-->
+    <!--@Table t_dictionary-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dic_parentid" jdbcType="INTEGER" property="dicParentid" />
+    <result column="dic_type" jdbcType="VARCHAR" property="dicType" />
+    <result column="dic_name" jdbcType="VARCHAR" property="dicName" />
+    <result column="dic_value" jdbcType="VARCHAR" property="dicValue" />
+    <result column="dic_desc" jdbcType="VARCHAR" property="dicDesc" />
+    <result column="dic_order" jdbcType="INTEGER" property="dicOrder" />
+    <result column="dic_status" jdbcType="VARCHAR" property="dicStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, dic_parentid, dic_type, dic_name, dic_value, dic_desc, dic_order, dic_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_dictionary
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_dictionary
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.Dictionary" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_dictionary (dic_parentid, dic_type, dic_name, 
+      dic_value, dic_desc, dic_order, 
+      dic_status)
+    values (#{dicParentid,jdbcType=INTEGER}, #{dicType,jdbcType=VARCHAR}, #{dicName,jdbcType=VARCHAR}, 
+      #{dicValue,jdbcType=VARCHAR}, #{dicDesc,jdbcType=VARCHAR}, #{dicOrder,jdbcType=INTEGER}, 
+      #{dicStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.Dictionary" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_dictionary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dicParentid != null">
+        dic_parentid,
+      </if>
+      <if test="dicType != null">
+        dic_type,
+      </if>
+      <if test="dicName != null">
+        dic_name,
+      </if>
+      <if test="dicValue != null">
+        dic_value,
+      </if>
+      <if test="dicDesc != null">
+        dic_desc,
+      </if>
+      <if test="dicOrder != null">
+        dic_order,
+      </if>
+      <if test="dicStatus != null">
+        dic_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dicParentid != null">
+        #{dicParentid,jdbcType=INTEGER},
+      </if>
+      <if test="dicType != null">
+        #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicName != null">
+        #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue != null">
+        #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicDesc != null">
+        #{dicDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dicOrder != null">
+        #{dicOrder,jdbcType=INTEGER},
+      </if>
+      <if test="dicStatus != null">
+        #{dicStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.Dictionary">
+    <!--@mbg.generated-->
+    update t_dictionary
+    <set>
+      <if test="dicParentid != null">
+        dic_parentid = #{dicParentid,jdbcType=INTEGER},
+      </if>
+      <if test="dicType != null">
+        dic_type = #{dicType,jdbcType=VARCHAR},
+      </if>
+      <if test="dicName != null">
+        dic_name = #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="dicValue != null">
+        dic_value = #{dicValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicDesc != null">
+        dic_desc = #{dicDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dicOrder != null">
+        dic_order = #{dicOrder,jdbcType=INTEGER},
+      </if>
+      <if test="dicStatus != null">
+        dic_status = #{dicStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.Dictionary">
+    <!--@mbg.generated-->
+    update t_dictionary
+    set dic_parentid = #{dicParentid,jdbcType=INTEGER},
+      dic_type = #{dicType,jdbcType=VARCHAR},
+      dic_name = #{dicName,jdbcType=VARCHAR},
+      dic_value = #{dicValue,jdbcType=VARCHAR},
+      dic_desc = #{dicDesc,jdbcType=VARCHAR},
+      dic_order = #{dicOrder,jdbcType=INTEGER},
+      dic_status = #{dicStatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

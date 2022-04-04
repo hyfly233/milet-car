@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PassengerBlacklistMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PassengerBlacklist">
+    <!--@mbg.generated-->
+    <!--@Table t_passenger_blacklist-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="reason" jdbcType="CHAR" property="reason" />
+    <result column="category" jdbcType="CHAR" property="category" />
+    <result column="is_release" jdbcType="CHAR" property="isRelease" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, phone, reason, category, is_release, release_time, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_passenger_blacklist
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_passenger_blacklist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerBlacklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_blacklist (phone, reason, category, 
+      is_release, release_time, create_time, 
+      update_time)
+    values (#{phone,jdbcType=VARCHAR}, #{reason,jdbcType=CHAR}, #{category,jdbcType=CHAR}, 
+      #{isRelease,jdbcType=CHAR}, #{releaseTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerBlacklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_blacklist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="isRelease != null">
+        is_release,
+      </if>
+      <if test="releaseTime != null">
+        release_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=CHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=CHAR},
+      </if>
+      <if test="isRelease != null">
+        #{isRelease,jdbcType=CHAR},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PassengerBlacklist">
+    <!--@mbg.generated-->
+    update t_passenger_blacklist
+    <set>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=CHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=CHAR},
+      </if>
+      <if test="isRelease != null">
+        is_release = #{isRelease,jdbcType=CHAR},
+      </if>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PassengerBlacklist">
+    <!--@mbg.generated-->
+    update t_passenger_blacklist
+    set phone = #{phone,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=CHAR},
+      category = #{category,jdbcType=CHAR},
+      is_release = #{isRelease,jdbcType=CHAR},
+      release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

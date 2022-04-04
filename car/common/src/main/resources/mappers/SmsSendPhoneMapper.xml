@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.SmsSendPhoneMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.SmsSendPhone">
+    <!--@mbg.generated-->
+    <!--@Table t_sms_send_phone-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sms_template_id" jdbcType="VARCHAR" property="smsTemplateId" />
+    <result column="sms_type" jdbcType="BOOLEAN" property="smsType" />
+    <result column="send_type" jdbcType="BOOLEAN" property="sendType" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="phone_file" jdbcType="VARCHAR" property="phoneFile" />
+    <result column="send_people" jdbcType="INTEGER" property="sendPeople" />
+    <result column="operator_user" jdbcType="INTEGER" property="operatorUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sms_template_id, sms_type, send_type, phone_number, phone_file, send_people, 
+    operator_user, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_sms_send_phone
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_sms_send_phone
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.SmsSendPhone" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sms_send_phone (sms_template_id, sms_type, send_type, 
+      phone_number, phone_file, send_people, 
+      operator_user, create_time, update_time
+      )
+    values (#{smsTemplateId,jdbcType=VARCHAR}, #{smsType,jdbcType=BOOLEAN}, #{sendType,jdbcType=BOOLEAN}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{phoneFile,jdbcType=VARCHAR}, #{sendPeople,jdbcType=INTEGER}, 
+      #{operatorUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.SmsSendPhone" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sms_send_phone
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="smsTemplateId != null">
+        sms_template_id,
+      </if>
+      <if test="smsType != null">
+        sms_type,
+      </if>
+      <if test="sendType != null">
+        send_type,
+      </if>
+      <if test="phoneNumber != null">
+        phone_number,
+      </if>
+      <if test="phoneFile != null">
+        phone_file,
+      </if>
+      <if test="sendPeople != null">
+        send_people,
+      </if>
+      <if test="operatorUser != null">
+        operator_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="smsTemplateId != null">
+        #{smsTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsType != null">
+        #{smsType,jdbcType=BOOLEAN},
+      </if>
+      <if test="sendType != null">
+        #{sendType,jdbcType=BOOLEAN},
+      </if>
+      <if test="phoneNumber != null">
+        #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneFile != null">
+        #{phoneFile,jdbcType=VARCHAR},
+      </if>
+      <if test="sendPeople != null">
+        #{sendPeople,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUser != null">
+        #{operatorUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.SmsSendPhone">
+    <!--@mbg.generated-->
+    update t_sms_send_phone
+    <set>
+      <if test="smsTemplateId != null">
+        sms_template_id = #{smsTemplateId,jdbcType=VARCHAR},
+      </if>
+      <if test="smsType != null">
+        sms_type = #{smsType,jdbcType=BOOLEAN},
+      </if>
+      <if test="sendType != null">
+        send_type = #{sendType,jdbcType=BOOLEAN},
+      </if>
+      <if test="phoneNumber != null">
+        phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneFile != null">
+        phone_file = #{phoneFile,jdbcType=VARCHAR},
+      </if>
+      <if test="sendPeople != null">
+        send_people = #{sendPeople,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUser != null">
+        operator_user = #{operatorUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.SmsSendPhone">
+    <!--@mbg.generated-->
+    update t_sms_send_phone
+    set sms_template_id = #{smsTemplateId,jdbcType=VARCHAR},
+      sms_type = #{smsType,jdbcType=BOOLEAN},
+      send_type = #{sendType,jdbcType=BOOLEAN},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      phone_file = #{phoneFile,jdbcType=VARCHAR},
+      send_people = #{sendPeople,jdbcType=INTEGER},
+      operator_user = #{operatorUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

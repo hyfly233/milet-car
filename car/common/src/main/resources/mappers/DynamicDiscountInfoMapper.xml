@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DynamicDiscountInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DynamicDiscountInfo">
+    <!--@mbg.generated-->
+    <!--@Table t_dynamic_discount_info-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dynamic_discount_rule_id" jdbcType="INTEGER" property="dynamicDiscountRuleId" />
+    <result column="km" jdbcType="DOUBLE" property="km" />
+    <result column="discount" jdbcType="DOUBLE" property="discount" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, dynamic_discount_rule_id, km, discount, is_delete, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_dynamic_discount_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_dynamic_discount_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DynamicDiscountInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_dynamic_discount_info (dynamic_discount_rule_id, km, discount, 
+      is_delete, create_time, update_time
+      )
+    values (#{dynamicDiscountRuleId,jdbcType=INTEGER}, #{km,jdbcType=DOUBLE}, #{discount,jdbcType=DOUBLE}, 
+      #{isDelete,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DynamicDiscountInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_dynamic_discount_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dynamicDiscountRuleId != null">
+        dynamic_discount_rule_id,
+      </if>
+      <if test="km != null">
+        km,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dynamicDiscountRuleId != null">
+        #{dynamicDiscountRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="km != null">
+        #{km,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=DOUBLE},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DynamicDiscountInfo">
+    <!--@mbg.generated-->
+    update t_dynamic_discount_info
+    <set>
+      <if test="dynamicDiscountRuleId != null">
+        dynamic_discount_rule_id = #{dynamicDiscountRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="km != null">
+        km = #{km,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=DOUBLE},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DynamicDiscountInfo">
+    <!--@mbg.generated-->
+    update t_dynamic_discount_info
+    set dynamic_discount_rule_id = #{dynamicDiscountRuleId,jdbcType=INTEGER},
+      km = #{km,jdbcType=DOUBLE},
+      discount = #{discount,jdbcType=DOUBLE},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

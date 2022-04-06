@@ -53,3 +53,5 @@
 **/*.iml
 **/mvnw
 **/mvnw.cmd
+**/node_modules
+**/package-lock.json

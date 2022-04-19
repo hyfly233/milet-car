@@ -19,9 +19,7 @@ public class ServiceVerificationCodeRestTemplateServiceImpl implements ServiceVe
 
         String url = "http://service-verification-code/verify-code/generate/" + identity + "/" + phoneNumber;
 
-        ResponseResult result = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(null, null), ResponseResult.class).getBody();
-
-        return result;
+        return restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(null, null), ResponseResult.class).getBody();
     }
 
     @Override
@@ -34,8 +32,6 @@ public class ServiceVerificationCodeRestTemplateServiceImpl implements ServiceVe
         request.setIdentity(identity);
         request.setPhoneNumber(phoneNumber);
 
-        ResponseResult result = restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<Object>(request, null), ResponseResult.class).getBody();
-
-        return result;
+        return restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(request, null), ResponseResult.class).getBody();
     }
 }

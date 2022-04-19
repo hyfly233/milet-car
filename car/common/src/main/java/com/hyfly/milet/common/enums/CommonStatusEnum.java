@@ -29,7 +29,6 @@ public enum CommonStatusEnum {
 
     PHONE_NUMBER_ERROR(10102, "手机号格式不正确"),
 
-
     /**
      * 操作成功
      */
@@ -51,7 +50,7 @@ public enum CommonStatusEnum {
     @Getter
     private final String value;
 
-    private CommonStatusEnum(int code, String value) {
+    CommonStatusEnum(int code, String value) {
         this.code = code;
         this.value = value;
     }

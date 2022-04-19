@@ -29,7 +29,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
      * @return
      */
     @Override
-    public ResponseResult<VerifyCodeResponse> generate(int identity, String phoneNumber) {
+    public ResponseResult generate(int identity, String phoneNumber) {
         // 生成6位验证码
         String code = String.valueOf((int) ((Math.random() * 9 + 1) * Math.pow(10, 5)));
 
@@ -54,7 +54,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
      * @return
      */
     @Override
-    public ResponseResult<VerifyCodeResponse> verify(int identity, String phoneNumber, String code) {
+    public ResponseResult verify(int identity, String phoneNumber, String code) {
 
         //生成redis key
         String keyPre = generateKeyPreByIdentity(identity);

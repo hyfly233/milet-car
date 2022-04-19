@@ -1,6 +1,7 @@
 package com.hyfly.milet.api.passenger.controller;
 
 import com.hyfly.milet.api.passenger.req.UserAuthRequest;
+import com.hyfly.milet.api.passenger.service.AuthService;
 import com.hyfly.milet.common.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -18,11 +19,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseResult login(@RequestBody @Validated UserAuthRequest userAuthRequest) {
-
-        String passengerPhone = userAuthRequest.getPassengerPhone();
-        String code = userAuthRequest.getCode();
-
-        return authService.auth(passengerPhone, code);
+        return authService.auth(userAuthRequest.getPassengerPhone(), userAuthRequest.getCode());
 
     }
 }

@@ -14,23 +14,21 @@ import java.io.Serializable;
  */
 @Data
 @Accessors(chain = true)
-@SuppressWarnings("all")
-public class ResponseResult<T> implements Serializable {
+public class ResponseResult implements Serializable {
     @Serial
     private static final long serialVersionUID = -2073390651767969040L;
 
     private Integer code = 200;
     private String message;
-    private T data;
+    private Object data;
 
     /**
      * 返回成功数据（status：1）
      *
      * @param data 数据内容
-     * @param <T>  数据类型
      * @return ResponseResult实例
      */
-    public static <T> ResponseResult success(T data) {
+    public static ResponseResult success(Object data) {
         return new ResponseResult().setCode(CommonStatusEnum.SUCCESS.getCode()).setMessage(CommonStatusEnum.SUCCESS.getValue()).setData(data);
     }
 
@@ -38,10 +36,9 @@ public class ResponseResult<T> implements Serializable {
      * 返回错误数据（status：500）
      *
      * @param data 错误内容
-     * @param <T>  数据类型
      * @return ResponseResult实例
      */
-    public static <T> ResponseResult fail(T data) {
+    public static ResponseResult fail(Object data) {
         return new ResponseResult().setCode(CommonStatusEnum.INTERNAL_SERVER_EXCEPTION.getCode()).setMessage(CommonStatusEnum.INTERNAL_SERVER_EXCEPTION.getValue()).setData(data);
     }
 

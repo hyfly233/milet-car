@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CarDriverBindRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CarDriverBindRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_car_driver_bind_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_info_id" jdbcType="INTEGER" property="driverInfoId" />
+    <result column="car_info_id" jdbcType="INTEGER" property="carInfoId" />
+    <result column="operator_user" jdbcType="VARCHAR" property="operatorUser" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="bind_time" jdbcType="TIMESTAMP" property="bindTime" />
+    <result column="unbind_time" jdbcType="TIMESTAMP" property="unbindTime" />
+    <result column="total_mile" jdbcType="INTEGER" property="totalMile" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_info_id, car_info_id, operator_user, `type`, create_time, bind_time, unbind_time, 
+    total_mile
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_car_driver_bind_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_car_driver_bind_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarDriverBindRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_driver_bind_record (driver_info_id, car_info_id, operator_user, 
+      `type`, create_time, bind_time, 
+      unbind_time, total_mile)
+    values (#{driverInfoId,jdbcType=INTEGER}, #{carInfoId,jdbcType=INTEGER}, #{operatorUser,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{bindTime,jdbcType=TIMESTAMP}, 
+      #{unbindTime,jdbcType=TIMESTAMP}, #{totalMile,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarDriverBindRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_driver_bind_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        driver_info_id,
+      </if>
+      <if test="carInfoId != null">
+        car_info_id,
+      </if>
+      <if test="operatorUser != null">
+        operator_user,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="bindTime != null">
+        bind_time,
+      </if>
+      <if test="unbindTime != null">
+        unbind_time,
+      </if>
+      <if test="totalMile != null">
+        total_mile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="carInfoId != null">
+        #{carInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUser != null">
+        #{operatorUser,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bindTime != null">
+        #{bindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbindTime != null">
+        #{unbindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalMile != null">
+        #{totalMile,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CarDriverBindRecord">
+    <!--@mbg.generated-->
+    update t_car_driver_bind_record
+    <set>
+      <if test="driverInfoId != null">
+        driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="carInfoId != null">
+        car_info_id = #{carInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorUser != null">
+        operator_user = #{operatorUser,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bindTime != null">
+        bind_time = #{bindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbindTime != null">
+        unbind_time = #{unbindTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalMile != null">
+        total_mile = #{totalMile,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CarDriverBindRecord">
+    <!--@mbg.generated-->
+    update t_car_driver_bind_record
+    set driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      car_info_id = #{carInfoId,jdbcType=INTEGER},
+      operator_user = #{operatorUser,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      bind_time = #{bindTime,jdbcType=TIMESTAMP},
+      unbind_time = #{unbindTime,jdbcType=TIMESTAMP},
+      total_mile = #{totalMile,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

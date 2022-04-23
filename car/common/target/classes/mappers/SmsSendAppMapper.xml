@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.SmsSendAppMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.SmsSendApp">
+    <!--@mbg.generated-->
+    <!--@Table t_sms_send_app-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="show_type" jdbcType="TINYINT" property="showType" />
+    <result column="sms_type" jdbcType="TINYINT" property="smsType" />
+    <result column="people_tag_id" jdbcType="TINYINT" property="peopleTagId" />
+    <result column="sms_image" jdbcType="VARCHAR" property="smsImage" />
+    <result column="app_template_id" jdbcType="INTEGER" property="appTemplateId" />
+    <result column="sms_url" jdbcType="VARCHAR" property="smsUrl" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="send_status" jdbcType="BOOLEAN" property="sendStatus" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="operator_user" jdbcType="INTEGER" property="operatorUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_tima" jdbcType="TIMESTAMP" property="updateTima" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, show_type, sms_type, people_tag_id, sms_image, app_template_id, sms_url, 
+    start_time, send_status, `status`, operator_user, create_time, update_tima
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_sms_send_app
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_sms_send_app
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.SmsSendApp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sms_send_app (`name`, show_type, sms_type, 
+      people_tag_id, sms_image, app_template_id, 
+      sms_url, start_time, send_status, 
+      `status`, operator_user, create_time, 
+      update_tima)
+    values (#{name,jdbcType=VARCHAR}, #{showType,jdbcType=TINYINT}, #{smsType,jdbcType=TINYINT}, 
+      #{peopleTagId,jdbcType=TINYINT}, #{smsImage,jdbcType=VARCHAR}, #{appTemplateId,jdbcType=INTEGER}, 
+      #{smsUrl,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{sendStatus,jdbcType=BOOLEAN}, 
+      #{status,jdbcType=BOOLEAN}, #{operatorUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTima,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.SmsSendApp" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sms_send_app
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="showType != null">
+        show_type,
+      </if>
+      <if test="smsType != null">
+        sms_type,
+      </if>
+      <if test="peopleTagId != null">
+        people_tag_id,
+      </if>
+      <if test="smsImage != null">
+        sms_image,
+      </if>
+      <if test="appTemplateId != null">
+        app_template_id,
+      </if>
+      <if test="smsUrl != null">
+        sms_url,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="sendStatus != null">
+        send_status,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="operatorUser != null">
+        operator_user,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTima != null">
+        update_tima,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        #{showType,jdbcType=TINYINT},
+      </if>
+      <if test="smsType != null">
+        #{smsType,jdbcType=TINYINT},
+      </if>
+      <if test="peopleTagId != null">
+        #{peopleTagId,jdbcType=TINYINT},
+      </if>
+      <if test="smsImage != null">
+        #{smsImage,jdbcType=VARCHAR},
+      </if>
+      <if test="appTemplateId != null">
+        #{appTemplateId,jdbcType=INTEGER},
+      </if>
+      <if test="smsUrl != null">
+        #{smsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null">
+        #{sendStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="operatorUser != null">
+        #{operatorUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTima != null">
+        #{updateTima,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.SmsSendApp">
+    <!--@mbg.generated-->
+    update t_sms_send_app
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        show_type = #{showType,jdbcType=TINYINT},
+      </if>
+      <if test="smsType != null">
+        sms_type = #{smsType,jdbcType=TINYINT},
+      </if>
+      <if test="peopleTagId != null">
+        people_tag_id = #{peopleTagId,jdbcType=TINYINT},
+      </if>
+      <if test="smsImage != null">
+        sms_image = #{smsImage,jdbcType=VARCHAR},
+      </if>
+      <if test="appTemplateId != null">
+        app_template_id = #{appTemplateId,jdbcType=INTEGER},
+      </if>
+      <if test="smsUrl != null">
+        sms_url = #{smsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendStatus != null">
+        send_status = #{sendStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="operatorUser != null">
+        operator_user = #{operatorUser,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTima != null">
+        update_tima = #{updateTima,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.SmsSendApp">
+    <!--@mbg.generated-->
+    update t_sms_send_app
+    set `name` = #{name,jdbcType=VARCHAR},
+      show_type = #{showType,jdbcType=TINYINT},
+      sms_type = #{smsType,jdbcType=TINYINT},
+      people_tag_id = #{peopleTagId,jdbcType=TINYINT},
+      sms_image = #{smsImage,jdbcType=VARCHAR},
+      app_template_id = #{appTemplateId,jdbcType=INTEGER},
+      sms_url = #{smsUrl,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      send_status = #{sendStatus,jdbcType=BOOLEAN},
+      `status` = #{status,jdbcType=BOOLEAN},
+      operator_user = #{operatorUser,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_tima = #{updateTima,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

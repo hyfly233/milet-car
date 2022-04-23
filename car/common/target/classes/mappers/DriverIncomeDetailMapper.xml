@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverIncomeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverIncomeDetail">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_income_detail-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_info_id" jdbcType="INTEGER" property="driverInfoId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_money" jdbcType="DECIMAL" property="orderMoney" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="driver_ratio" jdbcType="DECIMAL" property="driverRatio" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_info_id, order_no, order_money, create_time, money, driver_ratio
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_income_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_income_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverIncomeDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_income_detail (driver_info_id, order_no, order_money, 
+      create_time, money, driver_ratio
+      )
+    values (#{driverInfoId,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{orderMoney,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{money,jdbcType=DECIMAL}, #{driverRatio,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverIncomeDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_income_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        driver_info_id,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderMoney != null">
+        order_money,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="driverRatio != null">
+        driver_ratio,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMoney != null">
+        #{orderMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="driverRatio != null">
+        #{driverRatio,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverIncomeDetail">
+    <!--@mbg.generated-->
+    update t_driver_income_detail
+    <set>
+      <if test="driverInfoId != null">
+        driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderMoney != null">
+        order_money = #{orderMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="driverRatio != null">
+        driver_ratio = #{driverRatio,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverIncomeDetail">
+    <!--@mbg.generated-->
+    update t_driver_income_detail
+    set driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      order_money = #{orderMoney,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      money = #{money,jdbcType=DECIMAL},
+      driver_ratio = #{driverRatio,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

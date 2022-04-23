@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PassengerStaticsMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PassengerStatics">
+    <!--@mbg.generated-->
+    <!--@Table t_passenger_statics-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="total_distance" jdbcType="DECIMAL" property="totalDistance" />
+    <result column="month_distance" jdbcType="DECIMAL" property="monthDistance" />
+    <result column="total_charge" jdbcType="DECIMAL" property="totalCharge" />
+    <result column="total_refund" jdbcType="DECIMAL" property="totalRefund" />
+    <result column="total_order_pay" jdbcType="DECIMAL" property="totalOrderPay" />
+    <result column="month_order_pay" jdbcType="DECIMAL" property="monthOrderPay" />
+    <result column="total_invoice" jdbcType="DECIMAL" property="totalInvoice" />
+    <result column="can_invoice" jdbcType="DECIMAL" property="canInvoice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, passenger_info_id, total_distance, month_distance, total_charge, total_refund, 
+    total_order_pay, month_order_pay, total_invoice, can_invoice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_passenger_statics
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_passenger_statics
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerStatics" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_statics (passenger_info_id, total_distance, month_distance, 
+      total_charge, total_refund, total_order_pay, 
+      month_order_pay, total_invoice, can_invoice
+      )
+    values (#{passengerInfoId,jdbcType=INTEGER}, #{totalDistance,jdbcType=DECIMAL}, #{monthDistance,jdbcType=DECIMAL}, 
+      #{totalCharge,jdbcType=DECIMAL}, #{totalRefund,jdbcType=DECIMAL}, #{totalOrderPay,jdbcType=DECIMAL}, 
+      #{monthOrderPay,jdbcType=DECIMAL}, #{totalInvoice,jdbcType=DECIMAL}, #{canInvoice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PassengerStatics" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_passenger_statics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="totalDistance != null">
+        total_distance,
+      </if>
+      <if test="monthDistance != null">
+        month_distance,
+      </if>
+      <if test="totalCharge != null">
+        total_charge,
+      </if>
+      <if test="totalRefund != null">
+        total_refund,
+      </if>
+      <if test="totalOrderPay != null">
+        total_order_pay,
+      </if>
+      <if test="monthOrderPay != null">
+        month_order_pay,
+      </if>
+      <if test="totalInvoice != null">
+        total_invoice,
+      </if>
+      <if test="canInvoice != null">
+        can_invoice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="totalDistance != null">
+        #{totalDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="monthDistance != null">
+        #{monthDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCharge != null">
+        #{totalCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="totalRefund != null">
+        #{totalRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOrderPay != null">
+        #{totalOrderPay,jdbcType=DECIMAL},
+      </if>
+      <if test="monthOrderPay != null">
+        #{monthOrderPay,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInvoice != null">
+        #{totalInvoice,jdbcType=DECIMAL},
+      </if>
+      <if test="canInvoice != null">
+        #{canInvoice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PassengerStatics">
+    <!--@mbg.generated-->
+    update t_passenger_statics
+    <set>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="totalDistance != null">
+        total_distance = #{totalDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="monthDistance != null">
+        month_distance = #{monthDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCharge != null">
+        total_charge = #{totalCharge,jdbcType=DECIMAL},
+      </if>
+      <if test="totalRefund != null">
+        total_refund = #{totalRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="totalOrderPay != null">
+        total_order_pay = #{totalOrderPay,jdbcType=DECIMAL},
+      </if>
+      <if test="monthOrderPay != null">
+        month_order_pay = #{monthOrderPay,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInvoice != null">
+        total_invoice = #{totalInvoice,jdbcType=DECIMAL},
+      </if>
+      <if test="canInvoice != null">
+        can_invoice = #{canInvoice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PassengerStatics">
+    <!--@mbg.generated-->
+    update t_passenger_statics
+    set passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      total_distance = #{totalDistance,jdbcType=DECIMAL},
+      month_distance = #{monthDistance,jdbcType=DECIMAL},
+      total_charge = #{totalCharge,jdbcType=DECIMAL},
+      total_refund = #{totalRefund,jdbcType=DECIMAL},
+      total_order_pay = #{totalOrderPay,jdbcType=DECIMAL},
+      month_order_pay = #{monthOrderPay,jdbcType=DECIMAL},
+      total_invoice = #{totalInvoice,jdbcType=DECIMAL},
+      can_invoice = #{canInvoice,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

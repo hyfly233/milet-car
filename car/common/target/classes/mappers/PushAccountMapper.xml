@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PushAccountMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PushAccount">
+    <!--@mbg.generated-->
+    <!--@Table t_push_account-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="jpush_id" jdbcType="VARCHAR" property="jpushId" />
+    <result column="yid" jdbcType="VARCHAR" property="yid" />
+    <result column="audience" jdbcType="INTEGER" property="audience" />
+    <result column="identity_status" jdbcType="INTEGER" property="identityStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `source`, jpush_id, yid, audience, identity_status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_push_account
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_push_account
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushAccount" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_account (`source`, jpush_id, yid, 
+      audience, identity_status, create_time, 
+      update_time)
+    values (#{source,jdbcType=VARCHAR}, #{jpushId,jdbcType=VARCHAR}, #{yid,jdbcType=VARCHAR}, 
+      #{audience,jdbcType=INTEGER}, #{identityStatus,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushAccount" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="source != null">
+        `source`,
+      </if>
+      <if test="jpushId != null">
+        jpush_id,
+      </if>
+      <if test="yid != null">
+        yid,
+      </if>
+      <if test="audience != null">
+        audience,
+      </if>
+      <if test="identityStatus != null">
+        identity_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="jpushId != null">
+        #{jpushId,jdbcType=VARCHAR},
+      </if>
+      <if test="yid != null">
+        #{yid,jdbcType=VARCHAR},
+      </if>
+      <if test="audience != null">
+        #{audience,jdbcType=INTEGER},
+      </if>
+      <if test="identityStatus != null">
+        #{identityStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PushAccount">
+    <!--@mbg.generated-->
+    update t_push_account
+    <set>
+      <if test="source != null">
+        `source` = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="jpushId != null">
+        jpush_id = #{jpushId,jdbcType=VARCHAR},
+      </if>
+      <if test="yid != null">
+        yid = #{yid,jdbcType=VARCHAR},
+      </if>
+      <if test="audience != null">
+        audience = #{audience,jdbcType=INTEGER},
+      </if>
+      <if test="identityStatus != null">
+        identity_status = #{identityStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PushAccount">
+    <!--@mbg.generated-->
+    update t_push_account
+    set `source` = #{source,jdbcType=VARCHAR},
+      jpush_id = #{jpushId,jdbcType=VARCHAR},
+      yid = #{yid,jdbcType=VARCHAR},
+      audience = #{audience,jdbcType=INTEGER},
+      identity_status = #{identityStatus,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

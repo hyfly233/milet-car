@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CarMachineInfoRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CarMachineInfoRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_car_machine_info_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="car_device_code" jdbcType="VARCHAR" property="carDeviceCode" />
+    <result column="mileage" jdbcType="DECIMAL" property="mileage" />
+    <result column="sub_mileage" jdbcType="DECIMAL" property="subMileage" />
+    <result column="is_ns" jdbcType="VARCHAR" property="isNs" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="is_ew" jdbcType="VARCHAR" property="isEw" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="qf" jdbcType="INTEGER" property="qf" />
+    <result column="satellite_num" jdbcType="INTEGER" property="satelliteNum" />
+    <result column="accuracy" jdbcType="DECIMAL" property="accuracy" />
+    <result column="gps_accuracy_status" jdbcType="INTEGER" property="gpsAccuracyStatus" />
+    <result column="elevation" jdbcType="DECIMAL" property="elevation" />
+    <result column="direction" jdbcType="DECIMAL" property="direction" />
+    <result column="surplus_distance" jdbcType="DECIMAL" property="surplusDistance" />
+    <result column="parking_sw" jdbcType="INTEGER" property="parkingSw" />
+    <result column="key_pos" jdbcType="INTEGER" property="keyPos" />
+    <result column="sw_gear" jdbcType="INTEGER" property="swGear" />
+    <result column="brk_sta" jdbcType="INTEGER" property="brkSta" />
+    <result column="car_speed" jdbcType="INTEGER" property="carSpeed" />
+    <result column="ev_soc" jdbcType="DECIMAL" property="evSoc" />
+    <result column="limt_speed" jdbcType="INTEGER" property="limtSpeed" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, car_device_code, mileage, sub_mileage, is_ns, latitude, is_ew, longitude, qf, 
+    satellite_num, accuracy, gps_accuracy_status, elevation, direction, surplus_distance, 
+    parking_sw, key_pos, sw_gear, brk_sta, car_speed, ev_soc, limt_speed, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_car_machine_info_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_car_machine_info_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarMachineInfoRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_machine_info_record (car_device_code, mileage, sub_mileage, 
+      is_ns, latitude, is_ew, 
+      longitude, qf, satellite_num, 
+      accuracy, gps_accuracy_status, elevation, 
+      direction, surplus_distance, parking_sw, 
+      key_pos, sw_gear, brk_sta, 
+      car_speed, ev_soc, limt_speed, 
+      create_time, update_time)
+    values (#{carDeviceCode,jdbcType=VARCHAR}, #{mileage,jdbcType=DECIMAL}, #{subMileage,jdbcType=DECIMAL}, 
+      #{isNs,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{isEw,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=VARCHAR}, #{qf,jdbcType=INTEGER}, #{satelliteNum,jdbcType=INTEGER}, 
+      #{accuracy,jdbcType=DECIMAL}, #{gpsAccuracyStatus,jdbcType=INTEGER}, #{elevation,jdbcType=DECIMAL}, 
+      #{direction,jdbcType=DECIMAL}, #{surplusDistance,jdbcType=DECIMAL}, #{parkingSw,jdbcType=INTEGER}, 
+      #{keyPos,jdbcType=INTEGER}, #{swGear,jdbcType=INTEGER}, #{brkSta,jdbcType=INTEGER}, 
+      #{carSpeed,jdbcType=INTEGER}, #{evSoc,jdbcType=DECIMAL}, #{limtSpeed,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CarMachineInfoRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_car_machine_info_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="carDeviceCode != null">
+        car_device_code,
+      </if>
+      <if test="mileage != null">
+        mileage,
+      </if>
+      <if test="subMileage != null">
+        sub_mileage,
+      </if>
+      <if test="isNs != null">
+        is_ns,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="isEw != null">
+        is_ew,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="qf != null">
+        qf,
+      </if>
+      <if test="satelliteNum != null">
+        satellite_num,
+      </if>
+      <if test="accuracy != null">
+        accuracy,
+      </if>
+      <if test="gpsAccuracyStatus != null">
+        gps_accuracy_status,
+      </if>
+      <if test="elevation != null">
+        elevation,
+      </if>
+      <if test="direction != null">
+        direction,
+      </if>
+      <if test="surplusDistance != null">
+        surplus_distance,
+      </if>
+      <if test="parkingSw != null">
+        parking_sw,
+      </if>
+      <if test="keyPos != null">
+        key_pos,
+      </if>
+      <if test="swGear != null">
+        sw_gear,
+      </if>
+      <if test="brkSta != null">
+        brk_sta,
+      </if>
+      <if test="carSpeed != null">
+        car_speed,
+      </if>
+      <if test="evSoc != null">
+        ev_soc,
+      </if>
+      <if test="limtSpeed != null">
+        limt_speed,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="carDeviceCode != null">
+        #{carDeviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        #{mileage,jdbcType=DECIMAL},
+      </if>
+      <if test="subMileage != null">
+        #{subMileage,jdbcType=DECIMAL},
+      </if>
+      <if test="isNs != null">
+        #{isNs,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="isEw != null">
+        #{isEw,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="qf != null">
+        #{qf,jdbcType=INTEGER},
+      </if>
+      <if test="satelliteNum != null">
+        #{satelliteNum,jdbcType=INTEGER},
+      </if>
+      <if test="accuracy != null">
+        #{accuracy,jdbcType=DECIMAL},
+      </if>
+      <if test="gpsAccuracyStatus != null">
+        #{gpsAccuracyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="elevation != null">
+        #{elevation,jdbcType=DECIMAL},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=DECIMAL},
+      </if>
+      <if test="surplusDistance != null">
+        #{surplusDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="parkingSw != null">
+        #{parkingSw,jdbcType=INTEGER},
+      </if>
+      <if test="keyPos != null">
+        #{keyPos,jdbcType=INTEGER},
+      </if>
+      <if test="swGear != null">
+        #{swGear,jdbcType=INTEGER},
+      </if>
+      <if test="brkSta != null">
+        #{brkSta,jdbcType=INTEGER},
+      </if>
+      <if test="carSpeed != null">
+        #{carSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="evSoc != null">
+        #{evSoc,jdbcType=DECIMAL},
+      </if>
+      <if test="limtSpeed != null">
+        #{limtSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CarMachineInfoRecord">
+    <!--@mbg.generated-->
+    update t_car_machine_info_record
+    <set>
+      <if test="carDeviceCode != null">
+        car_device_code = #{carDeviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mileage != null">
+        mileage = #{mileage,jdbcType=DECIMAL},
+      </if>
+      <if test="subMileage != null">
+        sub_mileage = #{subMileage,jdbcType=DECIMAL},
+      </if>
+      <if test="isNs != null">
+        is_ns = #{isNs,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="isEw != null">
+        is_ew = #{isEw,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="qf != null">
+        qf = #{qf,jdbcType=INTEGER},
+      </if>
+      <if test="satelliteNum != null">
+        satellite_num = #{satelliteNum,jdbcType=INTEGER},
+      </if>
+      <if test="accuracy != null">
+        accuracy = #{accuracy,jdbcType=DECIMAL},
+      </if>
+      <if test="gpsAccuracyStatus != null">
+        gps_accuracy_status = #{gpsAccuracyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="elevation != null">
+        elevation = #{elevation,jdbcType=DECIMAL},
+      </if>
+      <if test="direction != null">
+        direction = #{direction,jdbcType=DECIMAL},
+      </if>
+      <if test="surplusDistance != null">
+        surplus_distance = #{surplusDistance,jdbcType=DECIMAL},
+      </if>
+      <if test="parkingSw != null">
+        parking_sw = #{parkingSw,jdbcType=INTEGER},
+      </if>
+      <if test="keyPos != null">
+        key_pos = #{keyPos,jdbcType=INTEGER},
+      </if>
+      <if test="swGear != null">
+        sw_gear = #{swGear,jdbcType=INTEGER},
+      </if>
+      <if test="brkSta != null">
+        brk_sta = #{brkSta,jdbcType=INTEGER},
+      </if>
+      <if test="carSpeed != null">
+        car_speed = #{carSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="evSoc != null">
+        ev_soc = #{evSoc,jdbcType=DECIMAL},
+      </if>
+      <if test="limtSpeed != null">
+        limt_speed = #{limtSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CarMachineInfoRecord">
+    <!--@mbg.generated-->
+    update t_car_machine_info_record
+    set car_device_code = #{carDeviceCode,jdbcType=VARCHAR},
+      mileage = #{mileage,jdbcType=DECIMAL},
+      sub_mileage = #{subMileage,jdbcType=DECIMAL},
+      is_ns = #{isNs,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      is_ew = #{isEw,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      qf = #{qf,jdbcType=INTEGER},
+      satellite_num = #{satelliteNum,jdbcType=INTEGER},
+      accuracy = #{accuracy,jdbcType=DECIMAL},
+      gps_accuracy_status = #{gpsAccuracyStatus,jdbcType=INTEGER},
+      elevation = #{elevation,jdbcType=DECIMAL},
+      direction = #{direction,jdbcType=DECIMAL},
+      surplus_distance = #{surplusDistance,jdbcType=DECIMAL},
+      parking_sw = #{parkingSw,jdbcType=INTEGER},
+      key_pos = #{keyPos,jdbcType=INTEGER},
+      sw_gear = #{swGear,jdbcType=INTEGER},
+      brk_sta = #{brkSta,jdbcType=INTEGER},
+      car_speed = #{carSpeed,jdbcType=INTEGER},
+      ev_soc = #{evSoc,jdbcType=DECIMAL},
+      limt_speed = #{limtSpeed,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

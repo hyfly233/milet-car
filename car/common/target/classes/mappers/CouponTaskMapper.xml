@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CouponTaskMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CouponTask">
+    <!--@mbg.generated-->
+    <!--@Table t_coupon_task-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="coupon_id" jdbcType="INTEGER" property="couponId" />
+    <result column="coupon_name" jdbcType="VARCHAR" property="couponName" />
+    <result column="number" jdbcType="SMALLINT" property="number" />
+    <result column="task_tag" jdbcType="VARCHAR" property="taskTag" />
+    <result column="people_tag_id" jdbcType="INTEGER" property="peopleTagId" />
+    <result column="task_target" jdbcType="VARCHAR" property="taskTarget" />
+    <result column="app_tpl_id" jdbcType="INTEGER" property="appTplId" />
+    <result column="sms_tpl_id" jdbcType="INTEGER" property="smsTplId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="task_status" jdbcType="TINYINT" property="taskStatus" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="is_cancel" jdbcType="TINYINT" property="isCancel" />
+    <result column="plan_time" jdbcType="TIMESTAMP" property="planTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, coupon_id, coupon_name, `number`, task_tag, people_tag_id, task_target, app_tpl_id, 
+    sms_tpl_id, create_time, update_time, operator_id, task_status, start_time, is_cancel, 
+    plan_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_coupon_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_coupon_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponTask" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_task (coupon_id, coupon_name, `number`, 
+      task_tag, people_tag_id, task_target, 
+      app_tpl_id, sms_tpl_id, create_time, 
+      update_time, operator_id, task_status, 
+      start_time, is_cancel, plan_time
+      )
+    values (#{couponId,jdbcType=INTEGER}, #{couponName,jdbcType=VARCHAR}, #{number,jdbcType=SMALLINT}, 
+      #{taskTag,jdbcType=VARCHAR}, #{peopleTagId,jdbcType=INTEGER}, #{taskTarget,jdbcType=VARCHAR}, 
+      #{appTplId,jdbcType=INTEGER}, #{smsTplId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER}, #{taskStatus,jdbcType=TINYINT}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{isCancel,jdbcType=TINYINT}, #{planTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponTask" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="couponName != null">
+        coupon_name,
+      </if>
+      <if test="number != null">
+        `number`,
+      </if>
+      <if test="taskTag != null">
+        task_tag,
+      </if>
+      <if test="peopleTagId != null">
+        people_tag_id,
+      </if>
+      <if test="taskTarget != null">
+        task_target,
+      </if>
+      <if test="appTplId != null">
+        app_tpl_id,
+      </if>
+      <if test="smsTplId != null">
+        sms_tpl_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="taskStatus != null">
+        task_status,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="isCancel != null">
+        is_cancel,
+      </if>
+      <if test="planTime != null">
+        plan_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponName != null">
+        #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=SMALLINT},
+      </if>
+      <if test="taskTag != null">
+        #{taskTag,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleTagId != null">
+        #{peopleTagId,jdbcType=INTEGER},
+      </if>
+      <if test="taskTarget != null">
+        #{taskTarget,jdbcType=VARCHAR},
+      </if>
+      <if test="appTplId != null">
+        #{appTplId,jdbcType=INTEGER},
+      </if>
+      <if test="smsTplId != null">
+        #{smsTplId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCancel != null">
+        #{isCancel,jdbcType=TINYINT},
+      </if>
+      <if test="planTime != null">
+        #{planTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CouponTask">
+    <!--@mbg.generated-->
+    update t_coupon_task
+    <set>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="couponName != null">
+        coupon_name = #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        `number` = #{number,jdbcType=SMALLINT},
+      </if>
+      <if test="taskTag != null">
+        task_tag = #{taskTag,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleTagId != null">
+        people_tag_id = #{peopleTagId,jdbcType=INTEGER},
+      </if>
+      <if test="taskTarget != null">
+        task_target = #{taskTarget,jdbcType=VARCHAR},
+      </if>
+      <if test="appTplId != null">
+        app_tpl_id = #{appTplId,jdbcType=INTEGER},
+      </if>
+      <if test="smsTplId != null">
+        sms_tpl_id = #{smsTplId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null">
+        task_status = #{taskStatus,jdbcType=TINYINT},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isCancel != null">
+        is_cancel = #{isCancel,jdbcType=TINYINT},
+      </if>
+      <if test="planTime != null">
+        plan_time = #{planTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CouponTask">
+    <!--@mbg.generated-->
+    update t_coupon_task
+    set coupon_id = #{couponId,jdbcType=INTEGER},
+      coupon_name = #{couponName,jdbcType=VARCHAR},
+      `number` = #{number,jdbcType=SMALLINT},
+      task_tag = #{taskTag,jdbcType=VARCHAR},
+      people_tag_id = #{peopleTagId,jdbcType=INTEGER},
+      task_target = #{taskTarget,jdbcType=VARCHAR},
+      app_tpl_id = #{appTplId,jdbcType=INTEGER},
+      sms_tpl_id = #{smsTplId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      task_status = #{taskStatus,jdbcType=TINYINT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      is_cancel = #{isCancel,jdbcType=TINYINT},
+      plan_time = #{planTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

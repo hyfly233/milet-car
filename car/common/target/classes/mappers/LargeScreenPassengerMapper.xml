@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.LargeScreenPassengerMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.LargeScreenPassenger">
+    <!--@mbg.generated-->
+    <!--@Table t_large_screen_passenger-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="device_code" jdbcType="VARCHAR" property="deviceCode" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+    <result column="login_status" jdbcType="INTEGER" property="loginStatus" />
+    <result column="repair_time" jdbcType="TIMESTAMP" property="repairTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, passenger_info_id, device_code, login_time, logout_time, login_status, repair_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_large_screen_passenger
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_large_screen_passenger
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.LargeScreenPassenger" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_large_screen_passenger (passenger_info_id, device_code, login_time, 
+      logout_time, login_status, repair_time
+      )
+    values (#{passengerInfoId,jdbcType=INTEGER}, #{deviceCode,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{logoutTime,jdbcType=TIMESTAMP}, #{loginStatus,jdbcType=INTEGER}, #{repairTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.LargeScreenPassenger" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_large_screen_passenger
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="deviceCode != null">
+        device_code,
+      </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
+      <if test="logoutTime != null">
+        logout_time,
+      </if>
+      <if test="loginStatus != null">
+        login_status,
+      </if>
+      <if test="repairTime != null">
+        repair_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCode != null">
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null">
+        #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginStatus != null">
+        #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="repairTime != null">
+        #{repairTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.LargeScreenPassenger">
+    <!--@mbg.generated-->
+    update t_large_screen_passenger
+    <set>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="deviceCode != null">
+        device_code = #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoutTime != null">
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginStatus != null">
+        login_status = #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="repairTime != null">
+        repair_time = #{repairTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.LargeScreenPassenger">
+    <!--@mbg.generated-->
+    update t_large_screen_passenger
+    set passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      device_code = #{deviceCode,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      login_status = #{loginStatus,jdbcType=INTEGER},
+      repair_time = #{repairTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

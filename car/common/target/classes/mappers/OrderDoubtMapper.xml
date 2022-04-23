@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.OrderDoubtMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.OrderDoubt">
+    <!--@mbg.generated-->
+    <!--@Table t_order_doubt-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="appeal_number" jdbcType="VARCHAR" property="appealNumber" />
+    <result column="adjust_type" jdbcType="INTEGER" property="adjustType" />
+    <result column="adjust_content" jdbcType="VARCHAR" property="adjustContent" />
+    <result column="reason_type" jdbcType="INTEGER" property="reasonType" />
+    <result column="reason_text" jdbcType="VARCHAR" property="reasonText" />
+    <result column="old_cost" jdbcType="DECIMAL" property="oldCost" />
+    <result column="now_cost" jdbcType="DECIMAL" property="nowCost" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="handle_type" jdbcType="INTEGER" property="handleType" />
+    <result column="solution" jdbcType="VARCHAR" property="solution" />
+    <result column="operators" jdbcType="VARCHAR" property="operators" />
+    <result column="operate_time" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, appeal_number, adjust_type, adjust_content, reason_type, reason_text, 
+    old_cost, now_cost, `status`, handle_type, solution, operators, operate_time, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_doubt
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_order_doubt
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderDoubt" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_doubt (order_id, appeal_number, adjust_type, 
+      adjust_content, reason_type, reason_text, 
+      old_cost, now_cost, `status`, 
+      handle_type, solution, operators, 
+      operate_time, create_time, update_time
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{appealNumber,jdbcType=VARCHAR}, #{adjustType,jdbcType=INTEGER}, 
+      #{adjustContent,jdbcType=VARCHAR}, #{reasonType,jdbcType=INTEGER}, #{reasonText,jdbcType=VARCHAR}, 
+      #{oldCost,jdbcType=DECIMAL}, #{nowCost,jdbcType=DECIMAL}, #{status,jdbcType=INTEGER}, 
+      #{handleType,jdbcType=INTEGER}, #{solution,jdbcType=VARCHAR}, #{operators,jdbcType=VARCHAR}, 
+      #{operateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrderDoubt" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_order_doubt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="appealNumber != null">
+        appeal_number,
+      </if>
+      <if test="adjustType != null">
+        adjust_type,
+      </if>
+      <if test="adjustContent != null">
+        adjust_content,
+      </if>
+      <if test="reasonType != null">
+        reason_type,
+      </if>
+      <if test="reasonText != null">
+        reason_text,
+      </if>
+      <if test="oldCost != null">
+        old_cost,
+      </if>
+      <if test="nowCost != null">
+        now_cost,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="handleType != null">
+        handle_type,
+      </if>
+      <if test="solution != null">
+        solution,
+      </if>
+      <if test="operators != null">
+        operators,
+      </if>
+      <if test="operateTime != null">
+        operate_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="appealNumber != null">
+        #{appealNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustType != null">
+        #{adjustType,jdbcType=INTEGER},
+      </if>
+      <if test="adjustContent != null">
+        #{adjustContent,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonType != null">
+        #{reasonType,jdbcType=INTEGER},
+      </if>
+      <if test="reasonText != null">
+        #{reasonText,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCost != null">
+        #{oldCost,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCost != null">
+        #{nowCost,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="handleType != null">
+        #{handleType,jdbcType=INTEGER},
+      </if>
+      <if test="solution != null">
+        #{solution,jdbcType=VARCHAR},
+      </if>
+      <if test="operators != null">
+        #{operators,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.OrderDoubt">
+    <!--@mbg.generated-->
+    update t_order_doubt
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="appealNumber != null">
+        appeal_number = #{appealNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustType != null">
+        adjust_type = #{adjustType,jdbcType=INTEGER},
+      </if>
+      <if test="adjustContent != null">
+        adjust_content = #{adjustContent,jdbcType=VARCHAR},
+      </if>
+      <if test="reasonType != null">
+        reason_type = #{reasonType,jdbcType=INTEGER},
+      </if>
+      <if test="reasonText != null">
+        reason_text = #{reasonText,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCost != null">
+        old_cost = #{oldCost,jdbcType=DECIMAL},
+      </if>
+      <if test="nowCost != null">
+        now_cost = #{nowCost,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="handleType != null">
+        handle_type = #{handleType,jdbcType=INTEGER},
+      </if>
+      <if test="solution != null">
+        solution = #{solution,jdbcType=VARCHAR},
+      </if>
+      <if test="operators != null">
+        operators = #{operators,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.OrderDoubt">
+    <!--@mbg.generated-->
+    update t_order_doubt
+    set order_id = #{orderId,jdbcType=INTEGER},
+      appeal_number = #{appealNumber,jdbcType=VARCHAR},
+      adjust_type = #{adjustType,jdbcType=INTEGER},
+      adjust_content = #{adjustContent,jdbcType=VARCHAR},
+      reason_type = #{reasonType,jdbcType=INTEGER},
+      reason_text = #{reasonText,jdbcType=VARCHAR},
+      old_cost = #{oldCost,jdbcType=DECIMAL},
+      now_cost = #{nowCost,jdbcType=DECIMAL},
+      `status` = #{status,jdbcType=INTEGER},
+      handle_type = #{handleType,jdbcType=INTEGER},
+      solution = #{solution,jdbcType=VARCHAR},
+      operators = #{operators,jdbcType=VARCHAR},
+      operate_time = #{operateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

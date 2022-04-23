@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverOrderMessageStatisticalMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverOrderMessageStatistical">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_order_message_statistical-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_id" jdbcType="INTEGER" property="driverId" />
+    <result column="driving_licence_number" jdbcType="VARCHAR" property="drivingLicenceNumber" />
+    <result column="cycle" jdbcType="VARCHAR" property="cycle" />
+    <result column="order_count" jdbcType="INTEGER" property="orderCount" />
+    <result column="traffic_violations_count" jdbcType="INTEGER" property="trafficViolationsCount" />
+    <result column="complained_count" jdbcType="INTEGER" property="complainedCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_id, driving_licence_number, `cycle`, order_count, traffic_violations_count, 
+    complained_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_order_message_statistical
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_order_message_statistical
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverOrderMessageStatistical" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_order_message_statistical (driver_id, driving_licence_number, `cycle`, 
+      order_count, traffic_violations_count, complained_count
+      )
+    values (#{driverId,jdbcType=INTEGER}, #{drivingLicenceNumber,jdbcType=VARCHAR}, #{cycle,jdbcType=VARCHAR}, 
+      #{orderCount,jdbcType=INTEGER}, #{trafficViolationsCount,jdbcType=INTEGER}, #{complainedCount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverOrderMessageStatistical" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_order_message_statistical
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        driver_id,
+      </if>
+      <if test="drivingLicenceNumber != null">
+        driving_licence_number,
+      </if>
+      <if test="cycle != null">
+        `cycle`,
+      </if>
+      <if test="orderCount != null">
+        order_count,
+      </if>
+      <if test="trafficViolationsCount != null">
+        traffic_violations_count,
+      </if>
+      <if test="complainedCount != null">
+        complained_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingLicenceNumber != null">
+        #{drivingLicenceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        #{cycle,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="trafficViolationsCount != null">
+        #{trafficViolationsCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainedCount != null">
+        #{complainedCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverOrderMessageStatistical">
+    <!--@mbg.generated-->
+    update t_driver_order_message_statistical
+    <set>
+      <if test="driverId != null">
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingLicenceNumber != null">
+        driving_licence_number = #{drivingLicenceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cycle != null">
+        `cycle` = #{cycle,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        order_count = #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="trafficViolationsCount != null">
+        traffic_violations_count = #{trafficViolationsCount,jdbcType=INTEGER},
+      </if>
+      <if test="complainedCount != null">
+        complained_count = #{complainedCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverOrderMessageStatistical">
+    <!--@mbg.generated-->
+    update t_driver_order_message_statistical
+    set driver_id = #{driverId,jdbcType=INTEGER},
+      driving_licence_number = #{drivingLicenceNumber,jdbcType=VARCHAR},
+      `cycle` = #{cycle,jdbcType=VARCHAR},
+      order_count = #{orderCount,jdbcType=INTEGER},
+      traffic_violations_count = #{trafficViolationsCount,jdbcType=INTEGER},
+      complained_count = #{complainedCount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

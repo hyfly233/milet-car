@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverBindChangeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverBindChangeRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_bind_change_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_info_id" jdbcType="INTEGER" property="driverInfoId" />
+    <result column="bind_tag" jdbcType="VARCHAR" property="bindTag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="bind_value" jdbcType="VARCHAR" property="bindValue" />
+    <result column="bind_type" jdbcType="TINYINT" property="bindType" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_info_id, bind_tag, create_time, bind_value, bind_type, operator_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_bind_change_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_bind_change_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverBindChangeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_bind_change_record (driver_info_id, bind_tag, create_time, 
+      bind_value, bind_type, operator_id
+      )
+    values (#{driverInfoId,jdbcType=INTEGER}, #{bindTag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{bindValue,jdbcType=VARCHAR}, #{bindType,jdbcType=TINYINT}, #{operatorId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverBindChangeRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_bind_change_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        driver_info_id,
+      </if>
+      <if test="bindTag != null">
+        bind_tag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="bindValue != null">
+        bind_value,
+      </if>
+      <if test="bindType != null">
+        bind_type,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverInfoId != null">
+        #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="bindTag != null">
+        #{bindTag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bindValue != null">
+        #{bindValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bindType != null">
+        #{bindType,jdbcType=TINYINT},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverBindChangeRecord">
+    <!--@mbg.generated-->
+    update t_driver_bind_change_record
+    <set>
+      <if test="driverInfoId != null">
+        driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="bindTag != null">
+        bind_tag = #{bindTag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bindValue != null">
+        bind_value = #{bindValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bindType != null">
+        bind_type = #{bindType,jdbcType=TINYINT},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverBindChangeRecord">
+    <!--@mbg.generated-->
+    update t_driver_bind_change_record
+    set driver_info_id = #{driverInfoId,jdbcType=INTEGER},
+      bind_tag = #{bindTag,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      bind_value = #{bindValue,jdbcType=VARCHAR},
+      bind_type = #{bindType,jdbcType=TINYINT},
+      operator_id = #{operatorId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.BaseInfoCompanyPermitMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.BaseInfoCompanyPermit">
+    <!--@mbg.generated-->
+    <!--@Table t_base_info_company_permit-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="certificate" jdbcType="VARCHAR" property="certificate" />
+    <result column="operation_area" jdbcType="VARCHAR" property="operationArea" />
+    <result column="owner_name" jdbcType="VARCHAR" property="ownerName" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="stop_date" jdbcType="TIMESTAMP" property="stopDate" />
+    <result column="certify_date" jdbcType="TIMESTAMP" property="certifyDate" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, certificate, operation_area, owner_name, organization, start_date, stop_date, 
+    certify_date, `state`, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_base_info_company_permit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_base_info_company_permit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.BaseInfoCompanyPermit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_base_info_company_permit (certificate, operation_area, owner_name, 
+      organization, start_date, stop_date, 
+      certify_date, `state`, create_time, 
+      update_time)
+    values (#{certificate,jdbcType=VARCHAR}, #{operationArea,jdbcType=VARCHAR}, #{ownerName,jdbcType=VARCHAR}, 
+      #{organization,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, #{stopDate,jdbcType=TIMESTAMP}, 
+      #{certifyDate,jdbcType=TIMESTAMP}, #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.BaseInfoCompanyPermit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_base_info_company_permit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="certificate != null">
+        certificate,
+      </if>
+      <if test="operationArea != null">
+        operation_area,
+      </if>
+      <if test="ownerName != null">
+        owner_name,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="stopDate != null">
+        stop_date,
+      </if>
+      <if test="certifyDate != null">
+        certify_date,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="certificate != null">
+        #{certificate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationArea != null">
+        #{operationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null">
+        #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopDate != null">
+        #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certifyDate != null">
+        #{certifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.BaseInfoCompanyPermit">
+    <!--@mbg.generated-->
+    update t_base_info_company_permit
+    <set>
+      <if test="certificate != null">
+        certificate = #{certificate,jdbcType=VARCHAR},
+      </if>
+      <if test="operationArea != null">
+        operation_area = #{operationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null">
+        owner_name = #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stopDate != null">
+        stop_date = #{stopDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="certifyDate != null">
+        certify_date = #{certifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.BaseInfoCompanyPermit">
+    <!--@mbg.generated-->
+    update t_base_info_company_permit
+    set certificate = #{certificate,jdbcType=VARCHAR},
+      operation_area = #{operationArea,jdbcType=VARCHAR},
+      owner_name = #{ownerName,jdbcType=VARCHAR},
+      organization = #{organization,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      stop_date = #{stopDate,jdbcType=TIMESTAMP},
+      certify_date = #{certifyDate,jdbcType=TIMESTAMP},
+      `state` = #{state,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.OrganizationInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.OrganizationInfo">
+    <!--@mbg.generated-->
+    <!--@Table t_organization_info-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="organization_name" jdbcType="VARCHAR" property="organizationName" />
+    <result column="organization_code" jdbcType="VARCHAR" property="organizationCode" />
+    <result column="administrative_division_code" jdbcType="VARCHAR" property="administrativeDivisionCode" />
+    <result column="organization_address" jdbcType="VARCHAR" property="organizationAddress" />
+    <result column="duty_name" jdbcType="VARCHAR" property="dutyName" />
+    <result column="duty_phone" jdbcType="VARCHAR" property="dutyPhone" />
+    <result column="admin_name" jdbcType="VARCHAR" property="adminName" />
+    <result column="admin_phone" jdbcType="VARCHAR" property="adminPhone" />
+    <result column="organization_head_phone" jdbcType="VARCHAR" property="organizationHeadPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, organization_name, organization_code, administrative_division_code, organization_address, 
+    duty_name, duty_phone, admin_name, admin_phone, organization_head_phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_organization_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_organization_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrganizationInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_organization_info (organization_name, organization_code, 
+      administrative_division_code, organization_address, 
+      duty_name, duty_phone, admin_name, 
+      admin_phone, organization_head_phone)
+    values (#{organizationName,jdbcType=VARCHAR}, #{organizationCode,jdbcType=VARCHAR}, 
+      #{administrativeDivisionCode,jdbcType=VARCHAR}, #{organizationAddress,jdbcType=VARCHAR}, 
+      #{dutyName,jdbcType=VARCHAR}, #{dutyPhone,jdbcType=VARCHAR}, #{adminName,jdbcType=VARCHAR}, 
+      #{adminPhone,jdbcType=VARCHAR}, #{organizationHeadPhone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.OrganizationInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_organization_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="organizationName != null">
+        organization_name,
+      </if>
+      <if test="organizationCode != null">
+        organization_code,
+      </if>
+      <if test="administrativeDivisionCode != null">
+        administrative_division_code,
+      </if>
+      <if test="organizationAddress != null">
+        organization_address,
+      </if>
+      <if test="dutyName != null">
+        duty_name,
+      </if>
+      <if test="dutyPhone != null">
+        duty_phone,
+      </if>
+      <if test="adminName != null">
+        admin_name,
+      </if>
+      <if test="adminPhone != null">
+        admin_phone,
+      </if>
+      <if test="organizationHeadPhone != null">
+        organization_head_phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="organizationName != null">
+        #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null">
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeDivisionCode != null">
+        #{administrativeDivisionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationAddress != null">
+        #{organizationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyName != null">
+        #{dutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyPhone != null">
+        #{dutyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null">
+        #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationHeadPhone != null">
+        #{organizationHeadPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.OrganizationInfo">
+    <!--@mbg.generated-->
+    update t_organization_info
+    <set>
+      <if test="organizationName != null">
+        organization_name = #{organizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null">
+        organization_code = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="administrativeDivisionCode != null">
+        administrative_division_code = #{administrativeDivisionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationAddress != null">
+        organization_address = #{organizationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyName != null">
+        duty_name = #{dutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="dutyPhone != null">
+        duty_phone = #{dutyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminName != null">
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null">
+        admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationHeadPhone != null">
+        organization_head_phone = #{organizationHeadPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.OrganizationInfo">
+    <!--@mbg.generated-->
+    update t_organization_info
+    set organization_name = #{organizationName,jdbcType=VARCHAR},
+      organization_code = #{organizationCode,jdbcType=VARCHAR},
+      administrative_division_code = #{administrativeDivisionCode,jdbcType=VARCHAR},
+      organization_address = #{organizationAddress,jdbcType=VARCHAR},
+      duty_name = #{dutyName,jdbcType=VARCHAR},
+      duty_phone = #{dutyPhone,jdbcType=VARCHAR},
+      admin_name = #{adminName,jdbcType=VARCHAR},
+      admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      organization_head_phone = #{organizationHeadPhone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

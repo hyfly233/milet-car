@@ -1,11 +1,15 @@
-package com.hyfly.milet.eureka.filter;
+package com.hyfly.milet.zuul.filter;
 
+import com.hyfly.milet.common.util.JwtInfo;
+import com.hyfly.milet.common.util.JwtUtil;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;

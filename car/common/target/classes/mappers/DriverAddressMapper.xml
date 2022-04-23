@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverAddressMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverAddress">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_address-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="driver_id" jdbcType="INTEGER" property="driverId" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="address_longitude" jdbcType="VARCHAR" property="addressLongitude" />
+    <result column="address_latitude" jdbcType="VARCHAR" property="addressLatitude" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="is_default" jdbcType="TINYINT" property="isDefault" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, driver_id, address, address_longitude, address_latitude, create_time, update_time, 
+    tag, is_default
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverAddress" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_address (driver_id, address, address_longitude, 
+      address_latitude, create_time, update_time, 
+      tag, is_default)
+    values (#{driverId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{addressLongitude,jdbcType=VARCHAR}, 
+      #{addressLatitude,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{tag,jdbcType=VARCHAR}, #{isDefault,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverAddress" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        driver_id,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="addressLongitude != null">
+        address_longitude,
+      </if>
+      <if test="addressLatitude != null">
+        address_latitude,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="isDefault != null">
+        is_default,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="driverId != null">
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLongitude != null">
+        #{addressLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLatitude != null">
+        #{addressLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null">
+        #{isDefault,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverAddress">
+    <!--@mbg.generated-->
+    update t_driver_address
+    <set>
+      <if test="driverId != null">
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLongitude != null">
+        address_longitude = #{addressLongitude,jdbcType=VARCHAR},
+      </if>
+      <if test="addressLatitude != null">
+        address_latitude = #{addressLatitude,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null">
+        is_default = #{isDefault,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverAddress">
+    <!--@mbg.generated-->
+    update t_driver_address
+    set driver_id = #{driverId,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      address_longitude = #{addressLongitude,jdbcType=VARCHAR},
+      address_latitude = #{addressLatitude,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      tag = #{tag,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

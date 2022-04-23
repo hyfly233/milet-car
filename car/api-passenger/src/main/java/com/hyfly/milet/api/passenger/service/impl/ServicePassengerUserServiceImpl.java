@@ -2,7 +2,10 @@ package com.hyfly.milet.api.passenger.service.impl;
 
 import com.hyfly.milet.api.passenger.service.ServicePassengerUserService;
 import com.hyfly.milet.common.dto.ResponseResult;
+import com.hyfly.milet.common.dto.service.passenger.user.request.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

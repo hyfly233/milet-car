@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.TvVersionUpdateMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.TvVersionUpdate">
+    <!--@mbg.generated-->
+    <!--@Table t_tv_version_update-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="tv_version_code" jdbcType="INTEGER" property="tvVersionCode" />
+    <result column="tv_version" jdbcType="VARCHAR" property="tvVersion" />
+    <result column="notice_type" jdbcType="SMALLINT" property="noticeType" />
+    <result column="prompt" jdbcType="VARCHAR" property="prompt" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="download_url" jdbcType="VARCHAR" property="downloadUrl" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="operator_id" jdbcType="INTEGER" property="operatorId" />
+    <result column="use_status" jdbcType="TINYINT" property="useStatus" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, tv_version_code, tv_version, notice_type, prompt, note, start_time, end_time, 
+    download_url, create_time, operator_id, use_status, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_tv_version_update
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_tv_version_update
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.TvVersionUpdate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_tv_version_update (`name`, tv_version_code, tv_version, 
+      notice_type, prompt, note, 
+      start_time, end_time, download_url, 
+      create_time, operator_id, use_status, 
+      update_time)
+    values (#{name,jdbcType=VARCHAR}, #{tvVersionCode,jdbcType=INTEGER}, #{tvVersion,jdbcType=VARCHAR}, 
+      #{noticeType,jdbcType=SMALLINT}, #{prompt,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{downloadUrl,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER}, #{useStatus,jdbcType=TINYINT}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.TvVersionUpdate" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_tv_version_update
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="tvVersionCode != null">
+        tv_version_code,
+      </if>
+      <if test="tvVersion != null">
+        tv_version,
+      </if>
+      <if test="noticeType != null">
+        notice_type,
+      </if>
+      <if test="prompt != null">
+        prompt,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="downloadUrl != null">
+        download_url,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="operatorId != null">
+        operator_id,
+      </if>
+      <if test="useStatus != null">
+        use_status,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tvVersionCode != null">
+        #{tvVersionCode,jdbcType=INTEGER},
+      </if>
+      <if test="tvVersion != null">
+        #{tvVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeType != null">
+        #{noticeType,jdbcType=SMALLINT},
+      </if>
+      <if test="prompt != null">
+        #{prompt,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadUrl != null">
+        #{downloadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="useStatus != null">
+        #{useStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.TvVersionUpdate">
+    <!--@mbg.generated-->
+    update t_tv_version_update
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="tvVersionCode != null">
+        tv_version_code = #{tvVersionCode,jdbcType=INTEGER},
+      </if>
+      <if test="tvVersion != null">
+        tv_version = #{tvVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeType != null">
+        notice_type = #{noticeType,jdbcType=SMALLINT},
+      </if>
+      <if test="prompt != null">
+        prompt = #{prompt,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadUrl != null">
+        download_url = #{downloadUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null">
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="useStatus != null">
+        use_status = #{useStatus,jdbcType=TINYINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.TvVersionUpdate">
+    <!--@mbg.generated-->
+    update t_tv_version_update
+    set `name` = #{name,jdbcType=VARCHAR},
+      tv_version_code = #{tvVersionCode,jdbcType=INTEGER},
+      tv_version = #{tvVersion,jdbcType=VARCHAR},
+      notice_type = #{noticeType,jdbcType=SMALLINT},
+      prompt = #{prompt,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      download_url = #{downloadUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      use_status = #{useStatus,jdbcType=TINYINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

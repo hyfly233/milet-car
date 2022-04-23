@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.CouponConditionsMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.CouponConditions">
+    <!--@mbg.generated-->
+    <!--@Table t_coupon_conditions-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="coupon_id" jdbcType="INTEGER" property="couponId" />
+    <result column="hour_set" jdbcType="VARCHAR" property="hourSet" />
+    <result column="week_set" jdbcType="VARCHAR" property="weekSet" />
+    <result column="date_set" jdbcType="VARCHAR" property="dateSet" />
+    <result column="city_set" jdbcType="VARCHAR" property="citySet" />
+    <result column="car_set" jdbcType="VARCHAR" property="carSet" />
+    <result column="service_set" jdbcType="VARCHAR" property="serviceSet" />
+    <result column="level_set" jdbcType="VARCHAR" property="levelSet" />
+    <result column="hour_raw" jdbcType="VARCHAR" property="hourRaw" />
+    <result column="date_raw" jdbcType="VARCHAR" property="dateRaw" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, coupon_id, hour_set, week_set, date_set, city_set, car_set, service_set, level_set, 
+    hour_raw, date_raw, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_coupon_conditions
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_coupon_conditions
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponConditions" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_conditions (coupon_id, hour_set, week_set, 
+      date_set, city_set, car_set, 
+      service_set, level_set, hour_raw, 
+      date_raw, create_time)
+    values (#{couponId,jdbcType=INTEGER}, #{hourSet,jdbcType=VARCHAR}, #{weekSet,jdbcType=VARCHAR}, 
+      #{dateSet,jdbcType=VARCHAR}, #{citySet,jdbcType=VARCHAR}, #{carSet,jdbcType=VARCHAR}, 
+      #{serviceSet,jdbcType=VARCHAR}, #{levelSet,jdbcType=VARCHAR}, #{hourRaw,jdbcType=VARCHAR}, 
+      #{dateRaw,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.CouponConditions" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_coupon_conditions
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="hourSet != null">
+        hour_set,
+      </if>
+      <if test="weekSet != null">
+        week_set,
+      </if>
+      <if test="dateSet != null">
+        date_set,
+      </if>
+      <if test="citySet != null">
+        city_set,
+      </if>
+      <if test="carSet != null">
+        car_set,
+      </if>
+      <if test="serviceSet != null">
+        service_set,
+      </if>
+      <if test="levelSet != null">
+        level_set,
+      </if>
+      <if test="hourRaw != null">
+        hour_raw,
+      </if>
+      <if test="dateRaw != null">
+        date_raw,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="couponId != null">
+        #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="hourSet != null">
+        #{hourSet,jdbcType=VARCHAR},
+      </if>
+      <if test="weekSet != null">
+        #{weekSet,jdbcType=VARCHAR},
+      </if>
+      <if test="dateSet != null">
+        #{dateSet,jdbcType=VARCHAR},
+      </if>
+      <if test="citySet != null">
+        #{citySet,jdbcType=VARCHAR},
+      </if>
+      <if test="carSet != null">
+        #{carSet,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceSet != null">
+        #{serviceSet,jdbcType=VARCHAR},
+      </if>
+      <if test="levelSet != null">
+        #{levelSet,jdbcType=VARCHAR},
+      </if>
+      <if test="hourRaw != null">
+        #{hourRaw,jdbcType=VARCHAR},
+      </if>
+      <if test="dateRaw != null">
+        #{dateRaw,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.CouponConditions">
+    <!--@mbg.generated-->
+    update t_coupon_conditions
+    <set>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=INTEGER},
+      </if>
+      <if test="hourSet != null">
+        hour_set = #{hourSet,jdbcType=VARCHAR},
+      </if>
+      <if test="weekSet != null">
+        week_set = #{weekSet,jdbcType=VARCHAR},
+      </if>
+      <if test="dateSet != null">
+        date_set = #{dateSet,jdbcType=VARCHAR},
+      </if>
+      <if test="citySet != null">
+        city_set = #{citySet,jdbcType=VARCHAR},
+      </if>
+      <if test="carSet != null">
+        car_set = #{carSet,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceSet != null">
+        service_set = #{serviceSet,jdbcType=VARCHAR},
+      </if>
+      <if test="levelSet != null">
+        level_set = #{levelSet,jdbcType=VARCHAR},
+      </if>
+      <if test="hourRaw != null">
+        hour_raw = #{hourRaw,jdbcType=VARCHAR},
+      </if>
+      <if test="dateRaw != null">
+        date_raw = #{dateRaw,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.CouponConditions">
+    <!--@mbg.generated-->
+    update t_coupon_conditions
+    set coupon_id = #{couponId,jdbcType=INTEGER},
+      hour_set = #{hourSet,jdbcType=VARCHAR},
+      week_set = #{weekSet,jdbcType=VARCHAR},
+      date_set = #{dateSet,jdbcType=VARCHAR},
+      city_set = #{citySet,jdbcType=VARCHAR},
+      car_set = #{carSet,jdbcType=VARCHAR},
+      service_set = #{serviceSet,jdbcType=VARCHAR},
+      level_set = #{levelSet,jdbcType=VARCHAR},
+      hour_raw = #{hourRaw,jdbcType=VARCHAR},
+      date_raw = #{dateRaw,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

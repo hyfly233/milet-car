@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DeviceBlacklistMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DeviceBlacklist">
+    <!--@mbg.generated-->
+    <!--@Table t_device_blacklist-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_type" jdbcType="CHAR" property="deviceType" />
+    <result column="device_code" jdbcType="VARCHAR" property="deviceCode" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="is_release" jdbcType="TINYINT" property="isRelease" />
+    <result column="phones" jdbcType="LONGVARCHAR" property="phones" />
+    <result column="memo" jdbcType="LONGVARCHAR" property="memo" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, device_type, device_code, last_login_time, is_release, phones, memo, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_device_blacklist
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_device_blacklist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DeviceBlacklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_device_blacklist (device_type, device_code, last_login_time, 
+      is_release, phones, memo, 
+      create_time, update_time)
+    values (#{deviceType,jdbcType=CHAR}, #{deviceCode,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{isRelease,jdbcType=TINYINT}, #{phones,jdbcType=LONGVARCHAR}, #{memo,jdbcType=LONGVARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DeviceBlacklist" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_device_blacklist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceType != null">
+        device_type,
+      </if>
+      <if test="deviceCode != null">
+        device_code,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="isRelease != null">
+        is_release,
+      </if>
+      <if test="phones != null">
+        phones,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=CHAR},
+      </if>
+      <if test="deviceCode != null">
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isRelease != null">
+        #{isRelease,jdbcType=TINYINT},
+      </if>
+      <if test="phones != null">
+        #{phones,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DeviceBlacklist">
+    <!--@mbg.generated-->
+    update t_device_blacklist
+    <set>
+      <if test="deviceType != null">
+        device_type = #{deviceType,jdbcType=CHAR},
+      </if>
+      <if test="deviceCode != null">
+        device_code = #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isRelease != null">
+        is_release = #{isRelease,jdbcType=TINYINT},
+      </if>
+      <if test="phones != null">
+        phones = #{phones,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DeviceBlacklist">
+    <!--@mbg.generated-->
+    update t_device_blacklist
+    set device_type = #{deviceType,jdbcType=CHAR},
+      device_code = #{deviceCode,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      is_release = #{isRelease,jdbcType=TINYINT},
+      phones = #{phones,jdbcType=LONGVARCHAR},
+      memo = #{memo,jdbcType=LONGVARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

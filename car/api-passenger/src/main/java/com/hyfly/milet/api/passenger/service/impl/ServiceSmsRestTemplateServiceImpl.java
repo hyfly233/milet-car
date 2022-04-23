@@ -2,11 +2,15 @@ package com.hyfly.milet.api.passenger.service.impl;
 
 import com.hyfly.milet.api.passenger.service.ServiceSmsRestTemplateService;
 import com.hyfly.milet.common.dto.ResponseResult;
+import com.hyfly.milet.common.dto.service.sms.SmsTemplateDto;
+import com.hyfly.milet.common.dto.service.sms.request.SmsSendRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class ServiceSmsRestTemplateServiceImpl implements ServiceSmsRestTemplateService {

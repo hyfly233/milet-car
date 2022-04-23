@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.InvoiceRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.InvoiceRecord">
+    <!--@mbg.generated-->
+    <!--@Table t_invoice_record-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="passenger_info_id" jdbcType="INTEGER" property="passengerInfoId" />
+    <result column="order_id_list" jdbcType="VARCHAR" property="orderIdList" />
+    <result column="invoice_price" jdbcType="DECIMAL" property="invoicePrice" />
+    <result column="invoice_status" jdbcType="TINYINT" property="invoiceStatus" />
+    <result column="invoice_type" jdbcType="TINYINT" property="invoiceType" />
+    <result column="invoice_body" jdbcType="TINYINT" property="invoiceBody" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="invoice_content" jdbcType="VARCHAR" property="invoiceContent" />
+    <result column="taxpayer_id" jdbcType="VARCHAR" property="taxpayerId" />
+    <result column="reg_address" jdbcType="VARCHAR" property="regAddress" />
+    <result column="reg_phone" jdbcType="VARCHAR" property="regPhone" />
+    <result column="deposit_bank" jdbcType="VARCHAR" property="depositBank" />
+    <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+    <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="express_company" jdbcType="TINYINT" property="expressCompany" />
+    <result column="express_num" jdbcType="VARCHAR" property="expressNum" />
+    <result column="express_time" jdbcType="TIMESTAMP" property="expressTime" />
+    <result column="reject_id" jdbcType="TINYINT" property="rejectId" />
+    <result column="cancel_desc" jdbcType="VARCHAR" property="cancelDesc" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="invoice_number" jdbcType="VARCHAR" property="invoiceNumber" />
+    <result column="express_company_name" jdbcType="VARCHAR" property="expressCompanyName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, passenger_info_id, order_id_list, invoice_price, invoice_status, invoice_type, 
+    invoice_body, invoice_title, invoice_content, taxpayer_id, reg_address, reg_phone, 
+    deposit_bank, bank_account, receiver_name, receiver_phone, receiver_address, create_time, 
+    express_company, express_num, express_time, reject_id, cancel_desc, email, invoice_number, 
+    express_company_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_invoice_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_invoice_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.InvoiceRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_invoice_record (passenger_info_id, order_id_list, invoice_price, 
+      invoice_status, invoice_type, invoice_body, 
+      invoice_title, invoice_content, taxpayer_id, 
+      reg_address, reg_phone, deposit_bank, 
+      bank_account, receiver_name, receiver_phone, 
+      receiver_address, create_time, express_company, 
+      express_num, express_time, reject_id, 
+      cancel_desc, email, invoice_number, 
+      express_company_name)
+    values (#{passengerInfoId,jdbcType=INTEGER}, #{orderIdList,jdbcType=VARCHAR}, #{invoicePrice,jdbcType=DECIMAL}, 
+      #{invoiceStatus,jdbcType=TINYINT}, #{invoiceType,jdbcType=TINYINT}, #{invoiceBody,jdbcType=TINYINT}, 
+      #{invoiceTitle,jdbcType=VARCHAR}, #{invoiceContent,jdbcType=VARCHAR}, #{taxpayerId,jdbcType=VARCHAR}, 
+      #{regAddress,jdbcType=VARCHAR}, #{regPhone,jdbcType=VARCHAR}, #{depositBank,jdbcType=VARCHAR}, 
+      #{bankAccount,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, #{receiverPhone,jdbcType=VARCHAR}, 
+      #{receiverAddress,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{expressCompany,jdbcType=TINYINT}, 
+      #{expressNum,jdbcType=VARCHAR}, #{expressTime,jdbcType=TIMESTAMP}, #{rejectId,jdbcType=TINYINT}, 
+      #{cancelDesc,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{invoiceNumber,jdbcType=VARCHAR}, 
+      #{expressCompanyName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.InvoiceRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_invoice_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        passenger_info_id,
+      </if>
+      <if test="orderIdList != null">
+        order_id_list,
+      </if>
+      <if test="invoicePrice != null">
+        invoice_price,
+      </if>
+      <if test="invoiceStatus != null">
+        invoice_status,
+      </if>
+      <if test="invoiceType != null">
+        invoice_type,
+      </if>
+      <if test="invoiceBody != null">
+        invoice_body,
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title,
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content,
+      </if>
+      <if test="taxpayerId != null">
+        taxpayer_id,
+      </if>
+      <if test="regAddress != null">
+        reg_address,
+      </if>
+      <if test="regPhone != null">
+        reg_phone,
+      </if>
+      <if test="depositBank != null">
+        deposit_bank,
+      </if>
+      <if test="bankAccount != null">
+        bank_account,
+      </if>
+      <if test="receiverName != null">
+        receiver_name,
+      </if>
+      <if test="receiverPhone != null">
+        receiver_phone,
+      </if>
+      <if test="receiverAddress != null">
+        receiver_address,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="expressCompany != null">
+        express_company,
+      </if>
+      <if test="expressNum != null">
+        express_num,
+      </if>
+      <if test="expressTime != null">
+        express_time,
+      </if>
+      <if test="rejectId != null">
+        reject_id,
+      </if>
+      <if test="cancelDesc != null">
+        cancel_desc,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="invoiceNumber != null">
+        invoice_number,
+      </if>
+      <if test="expressCompanyName != null">
+        express_company_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="passengerInfoId != null">
+        #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="orderIdList != null">
+        #{orderIdList,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicePrice != null">
+        #{invoicePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceStatus != null">
+        #{invoiceStatus,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceBody != null">
+        #{invoiceBody,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceTitle != null">
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerId != null">
+        #{taxpayerId,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null">
+        #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="regPhone != null">
+        #{regPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBank != null">
+        #{depositBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null">
+        #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null">
+        #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressCompany != null">
+        #{expressCompany,jdbcType=TINYINT},
+      </if>
+      <if test="expressNum != null">
+        #{expressNum,jdbcType=VARCHAR},
+      </if>
+      <if test="expressTime != null">
+        #{expressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rejectId != null">
+        #{rejectId,jdbcType=TINYINT},
+      </if>
+      <if test="cancelDesc != null">
+        #{cancelDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNumber != null">
+        #{invoiceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="expressCompanyName != null">
+        #{expressCompanyName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.InvoiceRecord">
+    <!--@mbg.generated-->
+    update t_invoice_record
+    <set>
+      <if test="passengerInfoId != null">
+        passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      </if>
+      <if test="orderIdList != null">
+        order_id_list = #{orderIdList,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicePrice != null">
+        invoice_price = #{invoicePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceStatus != null">
+        invoice_status = #{invoiceStatus,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceType != null">
+        invoice_type = #{invoiceType,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceBody != null">
+        invoice_body = #{invoiceBody,jdbcType=TINYINT},
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null">
+        invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayerId != null">
+        taxpayer_id = #{taxpayerId,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null">
+        reg_address = #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="regPhone != null">
+        reg_phone = #{regPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="depositBank != null">
+        deposit_bank = #{depositBank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverName != null">
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverPhone != null">
+        receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverAddress != null">
+        receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expressCompany != null">
+        express_company = #{expressCompany,jdbcType=TINYINT},
+      </if>
+      <if test="expressNum != null">
+        express_num = #{expressNum,jdbcType=VARCHAR},
+      </if>
+      <if test="expressTime != null">
+        express_time = #{expressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rejectId != null">
+        reject_id = #{rejectId,jdbcType=TINYINT},
+      </if>
+      <if test="cancelDesc != null">
+        cancel_desc = #{cancelDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNumber != null">
+        invoice_number = #{invoiceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="expressCompanyName != null">
+        express_company_name = #{expressCompanyName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.InvoiceRecord">
+    <!--@mbg.generated-->
+    update t_invoice_record
+    set passenger_info_id = #{passengerInfoId,jdbcType=INTEGER},
+      order_id_list = #{orderIdList,jdbcType=VARCHAR},
+      invoice_price = #{invoicePrice,jdbcType=DECIMAL},
+      invoice_status = #{invoiceStatus,jdbcType=TINYINT},
+      invoice_type = #{invoiceType,jdbcType=TINYINT},
+      invoice_body = #{invoiceBody,jdbcType=TINYINT},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      taxpayer_id = #{taxpayerId,jdbcType=VARCHAR},
+      reg_address = #{regAddress,jdbcType=VARCHAR},
+      reg_phone = #{regPhone,jdbcType=VARCHAR},
+      deposit_bank = #{depositBank,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+      receiver_address = #{receiverAddress,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      express_company = #{expressCompany,jdbcType=TINYINT},
+      express_num = #{expressNum,jdbcType=VARCHAR},
+      express_time = #{expressTime,jdbcType=TIMESTAMP},
+      reject_id = #{rejectId,jdbcType=TINYINT},
+      cancel_desc = #{cancelDesc,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      invoice_number = #{invoiceNumber,jdbcType=VARCHAR},
+      express_company_name = #{expressCompanyName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

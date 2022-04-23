@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.DriverMessageMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.DriverMessage">
+    <!--@mbg.generated-->
+    <!--@Table t_driver_message-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="passenger_id" jdbcType="INTEGER" property="passengerId" />
+    <result column="driver_id" jdbcType="INTEGER" property="driverId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="if_success" jdbcType="INTEGER" property="ifSuccess" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="message_type" jdbcType="INTEGER" property="messageType" />
+    <result column="message_channel" jdbcType="INTEGER" property="messageChannel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, passenger_id, driver_id, content, is_delete, create_time, if_success, order_id, 
+    message_type, message_channel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_driver_message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_driver_message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_message (passenger_id, driver_id, content, 
+      is_delete, create_time, if_success, 
+      order_id, message_type, message_channel
+      )
+    values (#{passengerId,jdbcType=INTEGER}, #{driverId,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{ifSuccess,jdbcType=INTEGER}, 
+      #{orderId,jdbcType=VARCHAR}, #{messageType,jdbcType=INTEGER}, #{messageChannel,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.DriverMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_driver_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="passengerId != null">
+        passenger_id,
+      </if>
+      <if test="driverId != null">
+        driver_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="ifSuccess != null">
+        if_success,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="messageType != null">
+        message_type,
+      </if>
+      <if test="messageChannel != null">
+        message_channel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="passengerId != null">
+        #{passengerId,jdbcType=INTEGER},
+      </if>
+      <if test="driverId != null">
+        #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifSuccess != null">
+        #{ifSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="messageChannel != null">
+        #{messageChannel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.DriverMessage">
+    <!--@mbg.generated-->
+    update t_driver_message
+    <set>
+      <if test="passengerId != null">
+        passenger_id = #{passengerId,jdbcType=INTEGER},
+      </if>
+      <if test="driverId != null">
+        driver_id = #{driverId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ifSuccess != null">
+        if_success = #{ifSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        message_type = #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="messageChannel != null">
+        message_channel = #{messageChannel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.DriverMessage">
+    <!--@mbg.generated-->
+    update t_driver_message
+    set passenger_id = #{passengerId,jdbcType=INTEGER},
+      driver_id = #{driverId,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      if_success = #{ifSuccess,jdbcType=INTEGER},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      message_type = #{messageType,jdbcType=INTEGER},
+      message_channel = #{messageChannel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

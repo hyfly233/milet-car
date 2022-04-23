@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyfly.milet.common.mapper.PushLoopMessageMapper">
+  <resultMap id="BaseResultMap" type="com.hyfly.milet.common.entity.PushLoopMessage">
+    <!--@mbg.generated-->
+    <!--@Table t_push_loop_message-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="accept_identity" jdbcType="TINYINT" property="acceptIdentity" />
+    <result column="accept_id" jdbcType="VARCHAR" property="acceptId" />
+    <result column="message_type" jdbcType="SMALLINT" property="messageType" />
+    <result column="message_body" jdbcType="VARCHAR" property="messageBody" />
+    <result column="read_flag" jdbcType="TINYINT" property="readFlag" />
+    <result column="send_id" jdbcType="VARCHAR" property="sendId" />
+    <result column="send_identity" jdbcType="INTEGER" property="sendIdentity" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, accept_identity, accept_id, message_type, message_body, read_flag, send_id, send_identity, 
+    expire_time, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_push_loop_message
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_push_loop_message
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushLoopMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_loop_message (accept_identity, accept_id, message_type, 
+      message_body, read_flag, send_id, 
+      send_identity, expire_time, create_time, 
+      update_time)
+    values (#{acceptIdentity,jdbcType=TINYINT}, #{acceptId,jdbcType=VARCHAR}, #{messageType,jdbcType=SMALLINT}, 
+      #{messageBody,jdbcType=VARCHAR}, #{readFlag,jdbcType=TINYINT}, #{sendId,jdbcType=VARCHAR}, 
+      #{sendIdentity,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.hyfly.milet.common.entity.PushLoopMessage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_push_loop_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acceptIdentity != null">
+        accept_identity,
+      </if>
+      <if test="acceptId != null">
+        accept_id,
+      </if>
+      <if test="messageType != null">
+        message_type,
+      </if>
+      <if test="messageBody != null">
+        message_body,
+      </if>
+      <if test="readFlag != null">
+        read_flag,
+      </if>
+      <if test="sendId != null">
+        send_id,
+      </if>
+      <if test="sendIdentity != null">
+        send_identity,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acceptIdentity != null">
+        #{acceptIdentity,jdbcType=TINYINT},
+      </if>
+      <if test="acceptId != null">
+        #{acceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=SMALLINT},
+      </if>
+      <if test="messageBody != null">
+        #{messageBody,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null">
+        #{readFlag,jdbcType=TINYINT},
+      </if>
+      <if test="sendId != null">
+        #{sendId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendIdentity != null">
+        #{sendIdentity,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hyfly.milet.common.entity.PushLoopMessage">
+    <!--@mbg.generated-->
+    update t_push_loop_message
+    <set>
+      <if test="acceptIdentity != null">
+        accept_identity = #{acceptIdentity,jdbcType=TINYINT},
+      </if>
+      <if test="acceptId != null">
+        accept_id = #{acceptId,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        message_type = #{messageType,jdbcType=SMALLINT},
+      </if>
+      <if test="messageBody != null">
+        message_body = #{messageBody,jdbcType=VARCHAR},
+      </if>
+      <if test="readFlag != null">
+        read_flag = #{readFlag,jdbcType=TINYINT},
+      </if>
+      <if test="sendId != null">
+        send_id = #{sendId,jdbcType=VARCHAR},
+      </if>
+      <if test="sendIdentity != null">
+        send_identity = #{sendIdentity,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hyfly.milet.common.entity.PushLoopMessage">
+    <!--@mbg.generated-->
+    update t_push_loop_message
+    set accept_identity = #{acceptIdentity,jdbcType=TINYINT},
+      accept_id = #{acceptId,jdbcType=VARCHAR},
+      message_type = #{messageType,jdbcType=SMALLINT},
+      message_body = #{messageBody,jdbcType=VARCHAR},
+      read_flag = #{readFlag,jdbcType=TINYINT},
+      send_id = #{sendId,jdbcType=VARCHAR},
+      send_identity = #{sendIdentity,jdbcType=INTEGER},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

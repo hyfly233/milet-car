@@ -2,6 +2,7 @@ package com.hyfly.milet.api.passenger.service.impl;
 
 import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeRestTemplateService;
 import com.hyfly.milet.common.dto.ResponseResult;
+import com.hyfly.milet.common.dto.service.verification.code.request.VerifyCodeRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;

@@ -1,18 +1,19 @@
 package com.hyfly.milet.service.verification.code.service.impl;
 
+import java.util.concurrent.TimeUnit;
+
 import com.hyfly.milet.common.constant.RedisKeyPrefixConstant;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.dto.service.verification.code.VerifyCodeResponse;
 import com.hyfly.milet.common.enums.CommonStatusEnum;
 import com.hyfly.milet.common.enums.IdentityEnum;
 import com.hyfly.milet.service.verification.code.service.VerifyCodeService;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class VerifyCodeServiceImpl implements VerifyCodeService {
@@ -56,7 +57,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
     @Override
     public ResponseResult verify(int identity, String phoneNumber, String code) {
 
-        //生成redis key
+        // 生成redis key
         String keyPre = generateKeyPreByIdentity(identity);
         String key = keyPre + phoneNumber;
         BoundValueOperations<String, String> codeRedis = redisTemplate.boundValueOps(key);
@@ -65,7 +66,8 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
         if (StringUtils.isNotBlank(code) && StringUtils.isNotBlank(redisCode) && code.trim().equals(redisCode.trim())) {
             return ResponseResult.success("success");
         } else {
-            return ResponseResult.fail(CommonStatusEnum.VERIFY_CODE_ERROR.getCode(), CommonStatusEnum.VERIFY_CODE_ERROR.getValue());
+            return ResponseResult.fail(CommonStatusEnum.VERIFY_CODE_ERROR.getCode(),
+                    CommonStatusEnum.VERIFY_CODE_ERROR.getValue());
         }
     }
 

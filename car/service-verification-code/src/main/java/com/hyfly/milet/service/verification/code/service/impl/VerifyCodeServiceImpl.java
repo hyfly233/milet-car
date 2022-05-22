@@ -1,20 +1,24 @@
 package com.hyfly.milet.service.verification.code.service.impl;
 
-import java.util.concurrent.TimeUnit;
-
 import com.hyfly.milet.common.constant.RedisKeyPrefixConstant;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.dto.service.verification.code.VerifyCodeResponse;
 import com.hyfly.milet.common.enums.CommonStatusEnum;
 import com.hyfly.milet.common.enums.IdentityEnum;
 import com.hyfly.milet.service.verification.code.service.VerifyCodeService;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 验证码 Service
+ *
+ * @author hyfly
+ */
 @Service
 public class VerifyCodeServiceImpl implements VerifyCodeService {
 
@@ -25,9 +29,9 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
      * 生成6位验证码
      * todo 需要三档验证 不能无限制发短信 redis 1分钟3次后5分钟不能发 1小时10次 24小时不能发
      *
-     * @param identity
-     * @param phoneNumber
-     * @return
+     * @param identity    identity
+     * @param phoneNumber phoneNumber
+     * @return ResponseResult
      */
     @Override
     public ResponseResult generate(int identity, String phoneNumber) {

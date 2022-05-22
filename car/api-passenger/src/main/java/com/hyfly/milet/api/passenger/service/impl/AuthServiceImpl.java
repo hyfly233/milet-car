@@ -9,6 +9,9 @@ import com.hyfly.milet.common.enums.IdentityEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author hyfly
+ */
 @Service
 public class AuthServiceImpl implements AuthService {
 
@@ -18,6 +21,13 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private ServicePassengerUserService servicePassengerUserService;
 
+    /**
+     * 校验
+     *
+     * @param passengerPhone passengerPhone
+     * @param code           验证码
+     * @return ResponseResult
+     */
     @Override
     public ResponseResult auth(String passengerPhone, String code) {
         // 验证验证码：

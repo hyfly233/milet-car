@@ -2,6 +2,12 @@ package com.hyfly.milet.common.enums;
 
 import lombok.Getter;
 
+/**
+ * 身份标识
+ *
+ * @author hyfly
+ */
+
 public enum IdentityEnum {
     /**
      * 乘客标识
@@ -16,7 +22,7 @@ public enum IdentityEnum {
     @Getter
     private final Integer value;
 
-    private IdentityEnum(Integer value) {
+    IdentityEnum(Integer value) {
         this.value = value;
     }
 }

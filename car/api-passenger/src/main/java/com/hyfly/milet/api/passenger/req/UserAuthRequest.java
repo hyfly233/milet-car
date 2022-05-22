@@ -5,6 +5,12 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+
+/**
+ * 请求参数
+ *
+ * @author hyfly
+ */
 @Data
 public class UserAuthRequest {
 

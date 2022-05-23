@@ -23,6 +23,5 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseResult login(@RequestBody @Validated UserAuthRequest userAuthRequest) {
         return authService.auth(userAuthRequest.getPassengerPhone(), userAuthRequest.getCode());
-
     }
 }

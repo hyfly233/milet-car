@@ -12,6 +12,7 @@ import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -38,6 +39,7 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
         // 生成6位验证码
         String code = String.valueOf((int) ((Math.random() * 9 + 1) * Math.pow(10, 5)));
 
+        //生成redis的key
         String keyPre = generateKeyPreByIdentity(identity);
         String key = keyPre + phoneNumber;
 
@@ -51,12 +53,13 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
     }
 
     /**
+     * 验证校验码
      * todo 三档验证
      *
-     * @param identity
-     * @param phoneNumber
-     * @param code
-     * @return
+     * @param identity    identity
+     * @param phoneNumber phoneNumber
+     * @param code        code
+     * @return ResponseResult
      */
     @Override
     public ResponseResult verify(int identity, String phoneNumber, String code) {
@@ -78,8 +81,8 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
     /**
      * 根据身份类型生成对应的缓存key
      *
-     * @param identity
-     * @return
+     * @param identity identity
+     * @return String
      */
     private String generateKeyPreByIdentity(int identity) {
         String keyPre = "";
@@ -94,8 +97,8 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
     /**
      * 判断此手机号发送时限限制
      *
-     * @param phoneNumber
-     * @return
+     * @param phoneNumber phoneNumber
+     * @return ResponseResult
      */
     private ResponseResult checkSendCodeTimeLimit(String phoneNumber) {
         // todo 判断是否有 限制1分钟，10分钟，24小时。
@@ -106,9 +109,9 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
     /**
      * todo 三档验证校验
      *
-     * @param phoneNumber
-     * @param code
-     * @return
+     * @param phoneNumber phoneNumber
+     * @param code        code
+     * @return ResponseResult
      */
     private ResponseResult checkCodeThreeLimit(String phoneNumber, String code) {
 

@@ -1,6 +1,6 @@
 package com.hyfly.milet.api.passenger.service.impl;
 
-import com.hyfly.milet.api.passenger.service.ServiceSmsRestTemplateService;
+import com.hyfly.milet.api.passenger.service.ServiceSmsService;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.dto.service.sms.SmsTemplateDto;
 import com.hyfly.milet.common.dto.service.sms.request.SmsSendRequest;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class ServiceSmsRestTemplateServiceImpl implements ServiceSmsRestTemplateService {
+public class ServiceSmsServiceImpl implements ServiceSmsService {
 
     @Autowired
     private RestTemplate restTemplate;

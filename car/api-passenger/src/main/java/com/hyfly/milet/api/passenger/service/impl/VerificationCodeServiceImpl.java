@@ -1,7 +1,7 @@
 package com.hyfly.milet.api.passenger.service.impl;
 
-import com.hyfly.milet.api.passenger.service.ServiceSmsRestTemplateService;
-import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeRestTemplateService;
+import com.hyfly.milet.api.passenger.service.ServiceSmsService;
+import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeService;
 import com.hyfly.milet.api.passenger.service.VerificationCodeService;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.dto.service.verification.code.VerifyCodeResponse;
@@ -15,16 +15,16 @@ import org.springframework.stereotype.Service;
 public class VerificationCodeServiceImpl implements VerificationCodeService {
 
     @Autowired
-    private ServiceVerificationCodeRestTemplateService serviceVerificationCodeRestTemplateService;
+    private ServiceVerificationCodeService serviceVerificationCodeService;
 
     @Autowired
-    private ServiceSmsRestTemplateService serviceSmsRestTemplateService;
+    private ServiceSmsService serviceSmsService;
 
     @Override
     public ResponseResult send(String phoneNumber) {
 
         // 获取验证码
-        ResponseResult responseResult = serviceVerificationCodeRestTemplateService.generatorCode(IdentityEnum.PASSENGER.getValue(), phoneNumber);
+        ResponseResult responseResult = serviceVerificationCodeService.generatorCode(IdentityEnum.PASSENGER.getValue(), phoneNumber);
         VerifyCodeResponse verifyCodeResponse = null;
         if (responseResult.getCode() == CommonStatusEnum.SUCCESS.getCode()) {
             JSONObject data = JSONObject.fromObject(responseResult.getData().toString());
@@ -36,7 +36,7 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
 
         String code = verifyCodeResponse.getCode();
 
-        ResponseResult result = serviceSmsRestTemplateService.sendSms(phoneNumber, code);
+        ResponseResult result = serviceSmsService.sendSms(phoneNumber, code);
         if (result.getCode() != CommonStatusEnum.SUCCESS.getCode()) {
             return ResponseResult.fail("发送短信 失败");
         }
@@ -48,7 +48,7 @@ public class VerificationCodeServiceImpl implements VerificationCodeService {
     @Override
     public ResponseResult verify(String phoneNumber, String code) {
 
-        return serviceVerificationCodeRestTemplateService.verifyCode(IdentityEnum.PASSENGER.getValue(), phoneNumber, code);
+        return serviceVerificationCodeService.verifyCode(IdentityEnum.PASSENGER.getValue(), phoneNumber, code);
     }
 
 }

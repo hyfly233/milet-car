@@ -2,7 +2,7 @@ package com.hyfly.milet.api.passenger.service.impl;
 
 import com.hyfly.milet.api.passenger.service.AuthService;
 import com.hyfly.milet.api.passenger.service.ServicePassengerUserService;
-import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeRestTemplateService;
+import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeService;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.enums.CommonStatusEnum;
 import com.hyfly.milet.common.enums.IdentityEnum;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
 
     @Autowired
-    private ServiceVerificationCodeRestTemplateService serviceVerificationCodeRestTemplateService;
+    private ServiceVerificationCodeService serviceVerificationCodeService;
 
     @Autowired
     private ServicePassengerUserService servicePassengerUserService;
@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public ResponseResult auth(String passengerPhone, String code) {
         // 验证验证码：
-        ResponseResult responseResult = serviceVerificationCodeRestTemplateService.verifyCode(IdentityEnum.PASSENGER.getValue(), passengerPhone, code);
+        ResponseResult responseResult = serviceVerificationCodeService.verifyCode(IdentityEnum.PASSENGER.getValue(), passengerPhone, code);
         if (responseResult.getCode() != CommonStatusEnum.SUCCESS.getCode()) {
             return ResponseResult.fail("登录失败：验证码校验失败");
         }

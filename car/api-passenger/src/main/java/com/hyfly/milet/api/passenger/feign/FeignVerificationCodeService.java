@@ -27,7 +27,7 @@ public interface FeignVerificationCodeService {
      * @param request request
      * @return ResponseResult
      */
-    @GetMapping("/generate")
+    @GetMapping("/verify-code/generate")
     ResponseResult generate(@SpringQueryMap GenerateCodeRequest request);
 
     /**
@@ -36,6 +36,6 @@ public interface FeignVerificationCodeService {
      * @param request request
      * @return ResponseResult
      */
-    @PostMapping("/verify")
+    @PostMapping("/verify-code/verify")
     ResponseResult verify(@RequestBody VerifyCodeRequest request);
 }

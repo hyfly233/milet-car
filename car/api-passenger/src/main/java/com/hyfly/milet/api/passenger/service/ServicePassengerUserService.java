@@ -5,4 +5,6 @@ import com.hyfly.milet.common.dto.ResponseResult;
 public interface ServicePassengerUserService {
 
     ResponseResult login(String passengerPhone);
+
+    ResponseResult logout(String token);
 }

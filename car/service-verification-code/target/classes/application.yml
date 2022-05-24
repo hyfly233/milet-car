@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service-verification-code-23311
+    name: service-verification-code
 
 eureka:
   client:

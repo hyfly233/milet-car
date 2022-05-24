@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: service-sms-23310
+    name: service-sms
 
 eureka:
   client:

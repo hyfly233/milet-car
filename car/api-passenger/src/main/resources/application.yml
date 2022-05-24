@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: car-api-23305
+    name: car-api
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -31,4 +31,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/
-    register-with-eureka: false
+  instance:
+    appname: ${spring.application.name}
+    instance-id: ${spring.application.name}

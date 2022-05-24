@@ -9,7 +9,15 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:23300/eureka/,http://localhost:23301/eureka/,http://localhost:23302/eureka/
-    enabled: false
   instance:
-    hostname: localhost
     instance-id: milet-zuul
+
+#zuul:
+#  routes:
+#    passenger:
+#      path: /passenger/**
+#      serviceId: car-api
+#    verificationCode:
+#      path: /verificationCode/**
+#      serviceId: service-verification-code
+#  prefix: /api

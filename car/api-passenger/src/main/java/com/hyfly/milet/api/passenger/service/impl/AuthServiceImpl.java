@@ -1,7 +1,7 @@
 package com.hyfly.milet.api.passenger.service.impl;
 
 import com.hyfly.milet.api.passenger.service.AuthService;
-import com.hyfly.milet.api.passenger.service.ServicePassengerUserService;
+import com.hyfly.milet.api.passenger.service.PassengerUserService;
 import com.hyfly.milet.api.passenger.service.ServiceVerificationCodeService;
 import com.hyfly.milet.common.dto.ResponseResult;
 import com.hyfly.milet.common.enums.CommonStatusEnum;
@@ -19,7 +19,7 @@ public class AuthServiceImpl implements AuthService {
     private ServiceVerificationCodeService serviceVerificationCodeService;
 
     @Autowired
-    private ServicePassengerUserService servicePassengerUserService;
+    private PassengerUserService passengerUserService;
 
     /**
      * 校验
@@ -37,7 +37,7 @@ public class AuthServiceImpl implements AuthService {
         }
 
         // 用户登录
-        responseResult = servicePassengerUserService.login(passengerPhone);
+        responseResult = passengerUserService.login(passengerPhone);
         if (responseResult.getCode() != CommonStatusEnum.SUCCESS.getCode()) {
             return ResponseResult.fail("登录失败：登录失败");
         }

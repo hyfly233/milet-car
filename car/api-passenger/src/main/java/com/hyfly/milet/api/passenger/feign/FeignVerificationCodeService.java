@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 @Service
 @Component
-@FeignClient(value = "service-verification-code-23311")
+@FeignClient(value = "SERVICE-VERIFICATION-CODE-23311")
 public interface FeignVerificationCodeService {
 
     /**
